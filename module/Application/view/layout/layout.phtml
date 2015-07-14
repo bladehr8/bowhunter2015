@@ -1,0 +1,153 @@
+<?php echo $this->doctype(); ?>
+
+<html lang="en" class="no-js" xmlns:fb="http://www.facebook.com/2008/fbml">
+    <head>
+        <meta charset="utf-8">
+        <?php echo $this->headTitle('ZF2 '. $this->translate('Skeleton Application'))->setSeparator(' - ')->setAutoEscape(false) ?>
+
+        <?php echo $this->headMeta()
+            ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+			 ->appendName('apple-mobile-web-app-capable', 'yes')
+			  ->appendName('apple-mobile-web-app-status-bar-style', 'black')
+            ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+        ?>
+		
+		
+		<!-- start: MAIN CSS -->
+        <!-- Le styles -->
+        <?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/assets/favicon.ico'))
+                        ->prependStylesheet($this->basePath() . '/assets/plugins/bootstrap/css/bootstrap.min.css') 
+                        ->prependStylesheet($this->basePath() . '/assets/plugins/font-awesome/css/font-awesome.min.css')                        
+						->prependStylesheet($this->basePath() . '/assets/fonts/style.css')
+						->prependStylesheet($this->basePath() . '/assets/css/main.css')
+						->prependStylesheet($this->basePath() . '/assets/css/main-responsive.css')
+						->prependStylesheet($this->basePath() . '/assets/plugins/iCheck/skins/all.css')
+						->prependStylesheet($this->basePath() . '/assets/plugins/bootstrap-colorpalette/css/bootstrap-colorpalette.css')
+						->prependStylesheet($this->basePath() . '/assets/plugins/perfect-scrollbar/src/perfect-scrollbar.css')
+						->prependStylesheet($this->basePath() . '/assets/plugins/perfect-scrollbar/src/perfect-scrollbar.css')
+						->prependStylesheet($this->basePath() . '/assets/css/theme_light.css')
+						
+						?>
+						
+						
+	
+	
+		<!--[if IE 7]>
+		 <link rel="stylesheet" href="/assets/plugins/font-awesome/css/font-awesome-ie7.min.css">
+		<![endif]-->
+		<!-- end: MAIN CSS -->
+		<!-- start: CSS REQUIRED FOR THIS PAGE ONLY -->
+		<!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->				
+
+ 
+   <style>
+		.navbar-collapse {
+				border-top: 0 none;
+				box-shadow: none;
+				padding-left: 0;
+				padding-right: 0;
+				
+
+		}
+	 
+	 </style> 
+    </head>
+   <body class="layout-boxed">
+		<!-- start: HEADER -->
+		<?php echo $this->render('layout/header.phtml'); ?>
+		<!-- end: HEADER -->
+		<!-- start: MAIN CONTAINER -->
+		<div class="main-container">
+			<div class="navbar-content">
+				<!-- start: SIDEBAR -->
+					<?php //echo $this->render('layout/leftsidebar.phtml'); ?>
+				<!-- end: SIDEBAR -->
+			</div>
+			<!-- start: PAGE -->
+			<div class="main-content">
+				<!-- start: PANEL CONFIGURATION MODAL FORM -->
+				<div class="modal fade" id="panel-config" tabindex="-1" role="dialog" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+									&times;
+								</button>
+								<h4 class="modal-title">Panel Configuration</h4>
+							</div>
+							<div class="modal-body">
+								Here will be a configuration form
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">
+									Close
+								</button>
+								<button type="button" class="btn btn-primary">
+									Save changes
+								</button>
+							</div>
+						</div>
+						<!-- /.modal-content -->
+					</div>
+					<!-- /.modal-dialog -->
+				</div>
+				<!-- /.modal -->
+				<!-- end: SPANEL CONFIGURATION MODAL FORM -->
+				<div class="container">
+					<!-- start: PAGE HEADER -->
+					<div class="row">
+						<div class="col-sm-12">
+							<!-- start: STYLE SELECTOR BOX -->
+							
+							<!-- end: STYLE SELECTOR BOX -->
+							<!-- start: PAGE TITLE & BREADCRUMB -->
+							<ol class="breadcrumb">
+								<li>
+									<i class="clip-file"></i>
+									<a href="#">
+										Layouts
+									</a>
+								</li>
+								<li class="active">
+									Boxed Layout
+								</li>
+								<li class="search-box">
+									<form class="sidebar-search">
+										<div class="form-group">
+											<input type="text" placeholder="Start Searching...">
+											<button class="submit">
+												<i class="clip-search-3"></i>
+											</button>
+										</div>
+									</form>
+								</li>
+							</ol>
+							<div class="page-header">
+								<h1>Boxed Layout <small>boxed layout</small></h1>
+							</div>
+							<!-- end: PAGE TITLE & BREADCRUMB -->
+						</div>
+					</div>
+					<!-- end: PAGE HEADER -->
+					<!-- start: PAGE CONTENT -->
+					<?php echo $this->content; ?>
+					<!-- end: PAGE CONTENT-->
+				</div>
+			</div>
+			<!-- end: PAGE -->
+		</div>
+		<!-- end: MAIN CONTAINER -->
+		<!-- start: FOOTER -->
+		<?php echo $this->render('layout/footer.phtml'); ?>
+		
+		<!-- end: MAIN JAVASCRIPTS -->
+		<!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+		<!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+		<script src="<?php print $this->basePath() ; ?>/assets/js/main.js"></script>
+		<script>
+			jQuery(document).ready(function() {
+				Main.init();
+			});
+		</script>
+	</body>
+</html>

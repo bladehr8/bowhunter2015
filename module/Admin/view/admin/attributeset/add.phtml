@@ -1,0 +1,60 @@
+<?php
+$title = 'Add New Attribute Set';
+$this->headTitle($title);
+?>
+<div class="page-header">
+<h1>Add Attribute Set <small>common form elements and layouts</small></h1> 
+</div>
+
+
+
+<div class="row">
+<div class="col-md-2"></div>
+<div class="col-md-8">
+	<!-- start: FORM VALIDATION 1 PANEL -->
+	<div class="panel panel-default">
+		<div class="panel-heading"><i class="fa fa-external-link-square"></i> <b>Add Attribute Set</b> </div>
+	
+	<div class="panel-body">
+			<?php
+			$form = $this->form;
+			$form->setAttribute('action', $this->url('attributeset', array('action' => 'add')));
+			$form->prepare();
+			echo $this->form()->openTag($form);  ?>
+			<fieldset>
+			<div class="form-group">					
+			<?php print $this->formRow($form->get('name'));?>
+			</div>
+
+			<div class="form-group">
+			<?php print $this->formRow($form->get('attribute_type'));?>
+			</div>
+
+
+			<div class="form-group">
+			<?php print $this->formRow($form->get('active'));?>
+			</div>
+			
+			<div class="form-actions" align="right">
+			<?php print $this->formRow($form->get('submit'));?>						
+			</div>
+			
+			
+			
+			
+			<?php 	echo $this->form()->closeTag(); 
+			//echo $this->formCollection($form);		
+			?>
+			
+			
+			
+			
+			
+			
+			</fieldset>
+
+</div>
+</div>
+</div>
+<div class="col-md-2"></div>
+</div>

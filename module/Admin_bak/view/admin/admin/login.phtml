@@ -1,0 +1,102 @@
+<?php
+$title = 'Add new album';
+$this->headTitle($title);
+?>
+<!-- <h1><?php //echo $this->escapeHtml($title); ?></h1> -->
+<?php
+$form = $this->form;
+$form->setAttribute('action', $this->url('admin', array('action' => 'index')));
+$form->prepare();
+
+
+
+//echo $this->formCollection($form);
+//echo $this->form()->email;
+
+//echo $this->formRow($form->get('email'));
+//echo $this->formRow($form->get('password'));
+//echo $this->formSubmit($form->get('submit'));
+
+
+ ?>
+ 			<!-- start: LOGIN BOX -->
+			<div class="box-login">
+				<h3>Sign in to your account</h3>
+				<p>
+					Please enter your name and password to log in.
+				</p>
+				
+				<?php  if ($this->messages){
+					echo '<ul>';
+					foreach($this->messages as $message)
+					{
+						echo '<li>'.$message.'</li>';
+					}
+					echo '</ul>';
+				} 
+				?>
+				<!--<form class="form-login" action="index.html"> -->
+				 <?php echo $this->form()->openTag($form); ?>
+					<div class="errorHandler alert alert-danger no-display">
+						<i class="fa fa-remove-sign"></i> You have some form errors. Please check below.
+					</div>
+					<fieldset>
+						<div class="form-group">
+							<span class="input-icon">
+								<!-- <input type="text" class="form-control" name="username" placeholder="Enter you email"> -->
+								<?php print $this->formRow($form->get('email'));?>
+								<i class="fa fa-user"></i> </span>
+							<!-- To mark the incorrectly filled input, you must add the class "error" to the input -->
+							<!-- example: <input type="text" class="login error" name="login" value="Username" /> -->
+						</div>
+						<div class="form-group form-actions">
+							<span class="input-icon">
+								<!-- <input type="password" class="form-control password" name="password" placeholder="Password"> -->
+								<?php print  $this->formRow($form->get('password')); ?>
+								<i class="fa fa-lock"></i>
+								<a class="forgot" href="#">
+									I forgot my password
+								</a> </span>
+						</div>
+						<div class="form-actions">
+						<!--
+							<label for="remember" class="checkbox-inline">
+								<input type="checkbox" class="grey remember" id="remember" name="remember">
+								Keep me signed in
+							</label>
+							-->
+							<button type="submit" class="btn btn-bricky pull-right">
+								Login <i class="fa fa-arrow-circle-right"></i>
+							</button>
+							<?php //echo $this->formSubmit($form->get('submit'));?>
+						</div>
+						<!--
+						<div class="new-account">
+							Don't have an account yet?
+							<a href="#" class="register">
+								Create an account
+							</a>
+						</div>
+						-->
+					</fieldset>
+				 <?php echo $this->form()->closeTag(); ?>
+			</div>
+			<!-- end: LOGIN BOX -->
+ 
+ 
+ 
+ 
+ 
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

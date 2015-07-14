@@ -1,0 +1,67 @@
+<?php
+$title = 'Edit New Tournamentmission';
+$this->headTitle($title);
+?>
+
+<div class="row">
+<div class="col-md-2"></div>
+<div class="col-md-8">
+	<!-- start: FORM VALIDATION 1 PANEL -->
+<div class="panel panel-default">
+		<div class="panel-heading"> <b>Edit tournamentmission</b> </div>
+	
+	<div class="panel-body">
+
+<?php
+$form = $this->form;
+$form->setAttribute('action', $this->url('tournamentmission', array('action' => 'edit', 'id'=> $this->id)));
+$form->prepare();
+echo $this->form()->openTag($form); ?>
+<?php echo $this->formHidden($form->get('id')); ?>
+					<fieldset>
+						<div class="form-group">
+								<?php print $this->formRow($form->get('name'));?>
+								<?php print $this->formRow($form->get('regionType'));?>
+						</div>
+						
+						
+						
+						
+						<div class="form-group">
+												
+								<div class="input-group date">
+								
+                                   <?php print $this->formRow($form->get('startDate'));?>
+                                    <!-- <span class="glyphicon glyphicon-calendar"></span> -->
+									<?php print $this->formRow($form->get('endDate'));?>
+                                   
+                                </div>
+								
+								
+						</div>
+						
+						<div class="form-group">
+								<?php print $this->formRow($form->get('tournamentmissionType'));?>
+								<?php print $this->formRow($form->get('minPointForEntry'));?>
+						</div>
+						
+						<div class="form-actions" align="center">
+						<?php print $this->formRow($form->get('submit'));?>
+						
+						</div>
+					
+					</fieldset>	
+
+<?php 
+//echo $this->formCollection($form);
+echo $this->form()->closeTag();
+?>
+</div>
+</div>
+</div>
+<div class="col-md-2"></div>
+</div>
+
+
+		
+

@@ -1,0 +1,16 @@
+<div class="per_content_area">
+<?php if($this->recent_offers->count() > 0 ):?>
+<?php foreach($this->recent_offers as $row): ?>
+<p class="offers_align"><a href="<?php print $row->external_link; ?>"><img src="<?php print $this->basePath();?>/upload/offers/<?php print $row->field_image; ?>" alt="" border="0"></a></p>
+<?php endforeach ; ?>
+<?php endif; ?>
+</div>
+
+
+
+
+
+
+
+
+

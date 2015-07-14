@@ -1,0 +1,86 @@
+<?php
+$title = 'Add New Tournament';
+$this->headTitle($title);
+?>
+
+<div class="row">
+
+<div class="col-sm-12">
+	<!-- start: FORM VALIDATION 1 PANEL -->
+<div class="panel panel-default">
+<div class="panel-heading"> <b>Add Tournament</b> </div>	
+<div class="panel-body">
+
+						<?php
+						$form = $this->form;
+						$form->setAttribute('action', $this->url('tournament', array('action' => 'add')));
+						$form->prepare();
+						echo $this->form()->openTag($form); 
+						?>
+					
+						<div class="form-group">
+											
+						<div class="col-sm-6"><?php print $this->formRow($form->get('name'));?>		</div>
+						<div class="col-sm-2"></div>
+						<div class="col-sm-3"> <?php print $this->formRow($form->get('regionType'));?>	</div>
+						
+						</div>
+						
+						<!--
+						<div class="form-group">
+						<label class="col-sm-2 control-label">
+						Sizes
+						</label>
+						<div class="col-sm-2">
+						<input type="text" class="form-control" id="form-field-9" placeholder="Text Field">
+						</div>
+						<div class="col-sm-3">
+						<input type="text" class="form-control" id="form-field-10" placeholder="Text Field">
+						</div>
+						<div class="col-sm-4">
+						<input type="text" class="form-control" id="form-field-11" placeholder="Text Field">
+						</div>
+						</div>						
+						-->
+						
+						<div class="form-group">
+											
+						<div class="col-sm-4 "> <?php print $this->formRow($form->get('startDate'));?></div>
+						<div class="col-sm-4"></div>
+						<div class="col-sm-3 "><?php print $this->formRow($form->get('endDate'));?></div>
+                        <!-- <span class="glyphicon glyphicon-calendar"></span> -->
+						</div>
+						
+						<div class="form-group">
+						
+						<div class="col-sm-6"> <?php print $this->formRow($form->get('tournamentType'));?></div>
+						<div class="col-sm-2"></div>
+						<div class="col-sm-3"> <?php print $this->formRow($form->get('minPointForEntry'));?></div>		
+						</div>
+						
+						<div class="form-group">														
+						<div class="col-sm-11" align="right"><?php print $this->formRow($form->get('number_0f_missions'));?></div>										
+						</div>
+						
+						
+						
+						
+						<div class="form-actions" align="right">						
+						<div class="col-sm-11"><?php print $this->formRow($form->get('submit'));?></div>		
+						</div>
+					
+					
+
+<?php 
+//echo $this->formCollection($form);
+echo $this->form()->closeTag();
+?>
+</div>
+</div>
+</div>
+
+</div>
+
+
+		
+

@@ -1,0 +1,45 @@
+<?php
+//$bankDetails = $this->bank;
+$title = 'Add Hunt Suggestion';
+$this->headTitle($title);
+?>
+
+<div class="row">
+<div class="col-md-2"></div>
+<div class="col-md-8">
+	<!-- start: FORM VALIDATION 1 PANEL -->
+	<div class="panel panel-default">
+		<div class="panel-heading"> <b>Add Hunt Suggestion</b> </div>
+	
+		<div class="panel-body">
+			<?php
+			$form = $this->form;
+			$form->setAttribute('action', $this->url('suggestion', array('action' => 'add')));
+			$form->prepare();
+			echo $this->form()->openTag($form);
+			echo $this->formHidden($form->get('id'));
+			?>
+			<fieldset>
+			
+			<div class="form-group"><label for="form-field-select-1">Suggestion Name</label><?php print $this->formRow($form->get('name'));?></div>	
+			<div class="form-group"><label for="form-field-select-1">Suggestion Available</label><?php print $this->formRow($form->get('suggestion_available'));?></div>	
+			<div class="form-group"><label for="form-field-select-1">Hitpower</label><?php print $this->formRow($form->get('hitpower'));?></div>	
+			<div class="form-group"><label for="form-field-select-1">Sight</label><?php print $this->formRow($form->get('sight'));?></div>	
+			<div class="form-group"><label for="form-field-select-1">Nsight</label><?php print $this->formRow($form->get('nsight'));?></div>	
+			<div class="form-group"><label for="form-field-select-1">Infra Red</label><?php print $this->formRow($form->get('infra_red'));?></div>	
+			<div class="form-group"><label for="form-field-select-1">Thermal</label><?php print $this->formRow($form->get('thermal'));?></div>	
+			<div class="form-group"><label for="form-field-select-1">Stabilizer</label><?php print $this->formRow($form->get('stabilizer'));?></div>	
+			<div class="form-group"><label for="form-field-select-1">Camouflage Dress</label><?php print $this->formRow($form->get('camouflage_dress'));?></div>				
+			<div class="form-group"><?php print $this->formRow($form->get('active'));?></div>
+			
+			<div class="form-actions" align="center">
+			<?php print $this->formRow($form->get('submit'));?>
+			</div>
+			</fieldset>
+			
+		<?php echo $this->form()->closeTag(); ?>
+		</div>
+</div>
+</div>
+<div class="col-md-2"></div>
+</div>

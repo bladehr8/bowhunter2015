@@ -1,0 +1,88 @@
+<?php
+//$bankDetails = $this->bank;
+$title = 'Add  New Hunt Club Game';
+$this->headTitle($title);
+?>
+<div class="page-header">
+	<!-- <h1>Hunt Club <small>boxed layout</small></h1> -->
+</div>
+
+
+
+
+<?php if(count($flashMessages)) : ?>
+			<div class="row">
+			<div class="col-md-12">
+					<div class="alert alert-success">
+					<button class="close" data-dismiss="alert">
+					×
+					</button>
+					<i class="fa fa-check-circle"></i>
+					<?php foreach ($flashMessages as $msg) : ?>
+					 <?php echo $msg; ?>
+					<?php endforeach; ?>
+					</div>
+			</div>
+			</div>
+<?php endif; ?>	
+
+
+
+
+<div class="row">
+
+<div class="col-sm-12">
+	<!-- start: FORM VALIDATION 1 PANEL -->
+	<div class="panel panel-default">
+		<div class="panel-heading"><i class="fa fa-external-link-square"></i> <b>Create Hunt Club Game</b> </div>
+	
+		<div class="panel-body">
+			<?php
+			$form = $this->form;
+			$form->setAttribute('action', $this->url('hunt-club-game', array('action' => 'add')));
+			$form->prepare();
+			echo $this->form()->openTag($form);
+			echo $this->formHidden($form->get('id'));
+			?>
+			<fieldset>
+			
+			<div class="form-group">
+			<?php print $this->formRow($form->get('hunt_clubs_id'));?>
+			</div>
+			
+			<div class="form-group">
+			<?php print $this->formRow($form->get('light_conditions_id'));?>
+			</div>
+			
+			<div class="form-group">
+			<?php print $this->formRow($form->get('regions_id'));?>
+			</div>
+			
+			<div class="form-group">
+			<?php print $this->formRow($form->get('number_of_animals'));?>
+			</div>			
+			
+			<div class="form-group">
+			<?php print $this->formRow($form->get('time_to_complete'));?>
+			</div>				
+			
+			
+			
+			
+			
+
+			<div class="form-group">
+			<?php print $this->formRow($form->get('active'));?>
+			</div>
+			
+			<div class="form-actions" align="right">
+			<?php print $this->formRow($form->get('submit'));?>
+			</div>
+			</fieldset>
+			
+		<?php echo $this->form()->closeTag(); ?>
+		</div>
+</div>
+</div>
+
+</div>

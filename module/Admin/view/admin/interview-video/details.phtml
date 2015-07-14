@@ -1,0 +1,80 @@
+<?php
+// module/Album/view/album/album/index.phtml:
+
+$title = 'Page Details';
+$this->headTitle($title);
+?><?php //echo $this->escapeHtml($title); ?>
+
+	<div class="page-header">
+		<h1><?php print $row->title; ?> <small>basic page</small></h1>
+	</div>
+
+
+<h3><?php //print $row->title; ?></h3>
+
+<?php if($row->short_note) :  ?>
+<p class="text-muted">
+<h4>Interviewer Name:</h4>
+<?php print $row->title; ?>
+</p>
+<?php endif; ?>
+
+<?php if($row->short_note) :  ?>
+<p class="text-muted">
+<h4>Interviewer Image:</h4>
+<img src="<?php print $this->basePath();?>/upload/<?php print $row->field_image ; ?>" alt="<?php print $row->title; ?>" />
+</p>
+<?php endif; ?>
+
+
+
+
+
+
+
+
+
+
+<?php if($row->short_note) :  ?>
+<p class="text-muted">
+<h4>Short Note:</h4>
+<?php print $row->short_note; ?>
+</p>
+<?php endif; ?>
+
+
+
+
+
+<?php if($row->youtube_link) :  ?>
+<?php
+$url = $row->youtube_link;
+preg_match( '/[\\?\\&]v=([^\\?\\&]+)/',   $url,  $matches  );
+$VIDEO_ID = $matches[1]; 	
+?>
+<p>
+<h4>Attached Youtube Video:</h4>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/<?php print $VIDEO_ID ; ?>" frameborder="0" allowfullscreen></iframe>
+</p>
+<?php endif; ?>
+ 
+ 
+<?php if($row->created_on) :  ?>
+<p class="text-danger">
+Created On : <code><?php print $row->created_on;?></code>
+</p>
+<?php endif; ?>
+ 
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

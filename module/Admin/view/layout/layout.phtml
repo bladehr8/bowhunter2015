@@ -1,0 +1,211 @@
+<?php echo $this->doctype(); ?>
+
+<html lang="en" class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <?php echo $this->headTitle('ZF2 '. $this->translate('Skeleton Application'))->setSeparator(' - ')->setAutoEscape(false) ?>
+
+        <?php echo $this->headMeta()
+            ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+			 ->appendName('apple-mobile-web-app-capable', 'yes')
+			  ->appendName('apple-mobile-web-app-status-bar-style', 'black')
+            ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+        ?>
+		
+		
+		<!-- start: MAIN CSS -->
+        <!-- Le styles -->
+        <?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/assets/favicon.ico'))
+                        ->appendStylesheet($this->basePath() . '/assets/plugins/bootstrap/css/bootstrap.min.css') 
+                        ->appendStylesheet($this->basePath() . '/assets/plugins/font-awesome/css/font-awesome.min.css')                        
+						->appendStylesheet($this->basePath() . '/assets/fonts/style.css')
+						->appendStylesheet($this->basePath() . '/assets/css/main.css')
+						->appendStylesheet($this->basePath() . '/assets/css/main-responsive.css')
+						->appendStylesheet($this->basePath() . '/assets/plugins/iCheck/skins/all.css')
+						->appendStylesheet($this->basePath() . '/assets/plugins/bootstrap-colorpalette/css/bootstrap-colorpalette.css')
+						->appendStylesheet($this->basePath() . '/assets/plugins/perfect-scrollbar/src/perfect-scrollbar.css')
+						->appendStylesheet($this->basePath() . '/assets/plugins/perfect-scrollbar/src/perfect-scrollbar.css')
+						->appendStylesheet($this->basePath() . '/assets/css/theme_light.css')
+						->appendStylesheet($this->basePath() . '/assets/plugins/select2/select2.css')
+						->appendStylesheet($this->basePath() . '/assets/plugins/bootstrap-datetimepicker/css/datetimepicker.css')
+						->appendStylesheet($this->basePath() . '/assets/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css')
+						->appendStylesheet($this->basePath() . '/assets/plugins/bootstrap-fileupload/bootstrap-fileupload.min.css')
+						->appendStylesheet( $this->basePath() . '/assets/plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css')
+						->appendStylesheet( $this->basePath() . '/assets/plugins/bootstrap-modal/css/bootstrap-modal.css');  
+						
+						
+						
+						?>
+						
+					
+	
+	
+		<!--[if IE 7]>
+		 <link rel="stylesheet" href="/assets/plugins/font-awesome/css/font-awesome-ie7.min.css">
+		<![endif]-->
+		<!-- end: MAIN CSS -->
+		<!-- start: CSS REQUIRED FOR THIS PAGE ONLY -->
+		<!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->				
+
+     <style>
+		.navbar-collapse {
+				border-top: 0 none;
+				box-shadow: none;
+				padding-left: 0;
+				padding-right: 0;
+				
+
+		}
+	 
+	 </style>   
+
+    </head>
+    <body class="footer-fixed">
+		<!-- start: HEADER -->
+		<?php echo $this->render('layout/header.phtml'); ?>
+		<!-- end: HEADER -->
+		<!-- start: MAIN CONTAINER -->
+		<div class="main-container">
+			<div class="navbar-content">
+				<!-- start: SIDEBAR -->
+				<?php echo $this->render('layout/leftsidebar.phtml'); ?>
+				<!-- end: SIDEBAR -->
+			</div>
+			<!-- start: PAGE -->
+			<div class="main-content">
+				<!-- start: PANEL CONFIGURATION MODAL FORM -->
+				<div class="modal fade" id="panel-config" tabindex="-1" role="dialog" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+									&times;
+								</button>
+								<h4 class="modal-title">Panel Configuration</h4>
+							</div>
+							<div class="modal-body">
+								Here will be a configuration form
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">
+									Close
+								</button>
+								<button type="button" class="btn btn-primary">
+									Save changes
+								</button>
+							</div>
+						</div>
+						<!-- /.modal-content -->
+					</div>
+					<!-- /.modal-dialog -->
+				</div>
+				<!-- /.modal -->
+				<!-- end: SPANEL CONFIGURATION MODAL FORM -->
+				<div class="container">
+					<!-- start: PAGE HEADER -->
+					<div class="row">
+						<div class="col-sm-12">
+							<!-- start: STYLE SELECTOR BOX -->
+							
+							<!-- end: STYLE SELECTOR BOX -->
+							<!-- start: PAGE TITLE & BREADCRUMB -->
+							<ol class="breadcrumb">
+								<!-- <li>
+									<i class="clip-file"></i>
+									<a href="#">
+										Layouts
+									</a>
+								</li>
+								<li class="active">
+									Footer Fixed
+								</li> -->
+								<li class="search-box">
+									<form class="sidebar-search">
+										<div class="form-group">
+											<input type="text" placeholder="Start Searching...">
+											<button class="submit">
+												<i class="clip-search-3"></i>
+											</button>
+										</div>
+									</form>
+								</li>
+							</ol>
+							
+							<!-- end: PAGE TITLE & BREADCRUMB -->
+						</div>
+					</div>
+					<!-- end: PAGE HEADER -->
+					<!-- start: PAGE CONTENT -->
+					<?php echo $this->content; ?>
+					<!-- end: PAGE CONTENT-->
+				</div>
+			</div>
+			<!-- end: PAGE -->
+		</div>
+		<!-- end: MAIN CONTAINER -->
+		<!-- start: FOOTER -->
+		<?php echo $this->render('layout/footer.phtml'); ?>
+		
+		<div id="ajax-modal" class="modal fade" tabindex="-1" style="display: none;"></div>
+		<!-- start: MAIN JAVASCRIPTS -->
+		<!--[if lt IE 9]>
+		<script src="/assets/plugins/respond.min.js"></script>
+		<script src="/assets/plugins/excanvas.min.js"></script>
+		<![endif]-->
+		<!-- Scripts -->
+		
+		
+		
+		
+		
+        <?php echo $this->headScript()
+			->appendFile( 'https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js')
+            ->appendFile($this->basePath() . '/assets/plugins/jquery-ui/jquery-ui-1.10.2.custom.min.js')
+            ->appendFile($this->basePath() . '/assets/plugins/bootstrap/js/bootstrap.min.js')
+			->appendFile($this->basePath() . '/assets/plugins/blockUI/jquery.blockUI.js')
+			->appendFile($this->basePath() . '/assets/plugins/iCheck/jquery.icheck.min.js')
+			->appendFile($this->basePath() . '/assets/plugins/perfect-scrollbar/src/jquery.mousewheel.js')
+			->appendFile($this->basePath() . '/assets/plugins/perfect-scrollbar/src/perfect-scrollbar.js')
+			->appendFile($this->basePath() . '/assets/plugins/less/less-1.5.0.min.js')
+			->appendFile($this->basePath() . '/assets/plugins/jquery-cookie/jquery.cookie.js')
+			->appendFile($this->basePath() . '/assets/plugins/bootstrap-colorpalette/js/bootstrap-colorpalette.js')
+			->appendFile($this->basePath() . '/assets/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js')
+			->appendFile($this->basePath() . '/assets/plugins/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.fr.js')
+			->appendFile($this->basePath() . '/assets/js/main.js')
+			->appendFile($this->basePath() . '/assets/plugins/bootstrap-daterangepicker/moment.min.js')
+			->appendFile($this->basePath() . '/assets/plugins/bootstrap-daterangepicker/daterangepicker.js')
+			->appendFile($this->basePath() . '/assets/plugins/bootstrap-fileupload/bootstrap-fileupload.min.js')			
+			
+			->appendFile($this->basePath() . '/assets/plugins/ckeditor/ckeditor.js')
+			->appendFile($this->basePath() . '/assets/plugins/ckeditor/adapters/jquery.js')
+
+
+			->appendFile($this->basePath() . '/assets/js/form-elements.js')
+			->appendFile($this->basePath() . '/js/custome.js')			
+			->appendFile( $this->basePath() . '/assets/plugins/bootstrap-modal/js/bootstrap-modal.js')
+			->appendFile( $this->basePath() . '/assets/plugins/bootstrap-modal/js/bootstrap-modalmanager.js')
+			->appendFile($this->basePath() .  '/assets/js/ui-tournament-modals.js')			
+			->appendFile($this->basePath() .  '/assets/js/ui-modals.js');
+			
+			
+			
+			
+			
+			
+			
+         ?> 
+
+		<!-- /container -->
+		<script>
+			jQuery(document).ready(function() {
+				Main.init();
+				//FormElements.init();
+				//UIModals.init();
+				});
+		</script>
+		
+        <?php echo $this->inlineScript(); ?>
+		
+		
+    </body>
+</html>

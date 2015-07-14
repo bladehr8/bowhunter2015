@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+        <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- <title>Game Title</title> -->
+		<?php echo $this->headTitle('Hunting '. $this->translate('Game Application'))->setSeparator(' - ')->setAutoEscape(false) ?>
+
+		<?php 
+		echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/assets/favicon.ico'))
+                        ->appendStylesheet($this->basePath() . '/frontend/css/bootstrap.min.css') 
+                        ->appendStylesheet($this->basePath() . '/frontend/css/custom_style.css')
+						->appendStylesheet($this->basePath() . '/frontend/css/custom_responsive.css')                           
+						->appendStylesheet($this->basePath() . '/frontend/css/jquery.mCustomScrollbar.css')
+						->appendStylesheet($this->basePath() . '/frontend/css/slimmenu.css')
+						->appendStylesheet($this->basePath() . '/frontend/css/font-awesome.css')
+						->appendStylesheet($this->basePath() . '/frontend/css/slider.css')
+						->appendStylesheet($this->basePath() . '/frontend/css/easy-responsive-tabs.css');
+						
+		?>
+		
+		
+	
+		
+		
+		
+       
+        <script type="text/javascript">
+        function scroll(oid,iid){
+            this.oCont=document.getElementById(oid)
+            this.ele=document.getElementById(iid)
+            this.width=this.ele.clientWidth;
+            this.n=this.oCont.clientWidth;
+            this.move=function(){
+                this.ele.style.left=this.n+"px"
+                this.n--
+                if(this.n<(-this.width)){this.n=this.oCont.clientWidth}
+            }
+        }
+        var vScroll
+        function setup(){
+            vScroll=new scroll("oScroll","scroll");			
+            setInterval("vScroll.move()",20)
+        }
+        onload=function(){setup()}
+        </script>
+
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+		
+</head>
+
+
+
+
+
+<body>
+
+
+
+
+
+
+<!-- top -->
+<?php echo $this->render('layout/apptop.phtml'); ?>
+<!-- end of top section -->
+
+<!-- banner -->
+<?php echo $this->render('layout/banner-area.phtml'); ?>
+
+<!--  sponsor icon -->
+<?php echo $this->render('layout/sponser-area.phtml'); ?>
+
+
+<!-- main content-->
+<div id="main_content_area"> 
+          
+          <!-- body content area -->
+			<div class="body_content_area">
+				<div class="container">
+					<div class="content_section">
+						<div class="row">
+							<div class="col-md-8 col-sm-8 gap_col1">
+							<?php echo $this->content; ?>
+							</div>
+							<div class="col-md-4 col-sm-4 gap_col2"> 
+							<?php if( 'active' === $this->layout()->tournament_sidebar ) {  ?>
+							<?php //echo $this->render('layout/tournament-sidebar.phtml'); ?>
+							<?php echo $this->render('layout/callouts-area.phtml'); ?>
+							<?php echo $this->render('layout/leader-board-area.phtml'); ?>
+							<?php } else { ?>
+							<!-- Callouts Area -->
+							<?php echo $this->render('layout/callouts-area.phtml'); ?>
+							<!-- leader board -->
+							<?php echo $this->render('layout/leader-board-area.phtml'); ?>
+							<!-- add area -->
+							<!-- <div> <a href="<?php print $this->basePath();?>"><img src="<?php print $this->basePath();?>/frontend/images/pizza_img.jpg" ></a> </div> -->
+							<?php } ?>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+          
+          <!-- footer area -->          
+		<?php echo $this->render('layout/appfooter.phtml'); ?>			
+</div>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="<?php print $this->basePath();?>/frontend/js/bootstrap.min.js"></script> 
+<script type="text/javascript" src="<?php print $this->basePath();?>/frontend/js/jquery.slimmenu.js"></script> 
+<script type="text/javascript" src="<?php print $this->basePath();?>/frontend/js/jquery.easing.min.js"></script> 
+<script src="<?php print $this->basePath();?>/frontend/js/jquery-validation/dist/jquery.validate.min.js"></script>
+<script>
+
+$(document).ready(function() {
+
+	$('.nav-toggle').click(function(){
+			var collapse_content_selector = $(this).attr('href');
+			var toggle_switch = $(this);
+			$(collapse_content_selector).toggle();
+	});	
+			
+});
+</script>
+
+
+<script>
+		$('#customersupport').validate({
+		
+		});
+	 //$('#customersupport').jBootValidator();
+</script>
+
+
+
+
+
+		
+<?php if( 'active' === $this->layout()->tournament_sidebar ) {  ?>
+
+
+<script type="text/javascript" src="<?php print $this->basePath();?>/frontend/js/frontend.js"></script> 
+<script type="text/javascript" src="<?php print $this->basePath();?>/frontend/js/resize.js"></script> 
+<script src="<?php print $this->basePath();?>/frontend/js/jquery.mCustomScrollbar.min.js"></script> 
+<script src="<?php print $this->basePath();?>/frontend/js/customScrollerbarSettings.js"></script> 
+<?php } elseif( $this->layout()->active_menu != "customer-support") { ?>
+<!-- This script for all pages except tournament pages -->
+		<?php echo $this->headScript()				
+			->appendFile($this->basePath() . '/frontend/js/jssor.js')
+			->appendFile($this->basePath() . '/frontend/js/jssor.slider.js')
+			->appendFile($this->basePath() . '/frontend/js/homePageSliderSettings.js');
+		?>
+
+
+<script type="text/javascript" src="<?php print $this->basePath();?>/frontend/js/frontend.js"></script> 
+<script type="text/javascript" src="<?php print $this->basePath();?>/frontend/js/resize.js"></script> 
+<script src="http://rocha.la/misc/jsdemos/slimScroll/jquery.slimscroll.js"></script> 
+<script type="text/javascript" src="<?php print $this->basePath();?>/frontend/js/slimScrollbarSettings.js"></script> 
+<script type="text/javascript" src="<?php print $this->basePath();?>/frontend/js/html5lightbox.js"></script>
+<?php } ?>
+
+
+<?php if ( isset($this->layout()->fb_session_email) ) { ?>
+<script src="<?php print $this->basePath();?>/frontend/js/easyResponsiveTabs.js" type="text/javascript"></script> 
+<script src="<?php print $this->basePath();?>/frontend/js/tabSettings.js" type="text/javascript"></script> 
+<?php } ?>
+
+</body>
+</html>

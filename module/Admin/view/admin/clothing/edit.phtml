@@ -1,0 +1,36 @@
+<?php
+$title = 'Add New Attribute Set';
+$this->headTitle($title);
+//$id  = $this->id;
+?>
+<!-- <h1><?php //echo $this->escapeHtml($title); ?></h1> -->
+
+
+<p><a href="/admin/clothing/add" class="btn btn-light-grey "><i class="fa fa-arrow-circle-left"> Back </i></a></p>
+
+<div class="row">
+<div class="col-md-2"></div>
+<div class="col-md-8">
+	<!-- start: FORM VALIDATION 1 PANEL -->
+	<div class="panel panel-default">
+		<div class="panel-heading"> <b>Edit Field value</b> </div>
+	
+				<div class="panel-body">
+				<?php
+				$form = $this->form;
+				$form->setAttribute('action', $this->url('clothing', array('action' => 'edit',  'id' => $id)));
+				$form->prepare();
+				echo $this->form()->openTag($form);  ?>
+				<fieldset>
+				<div class="form-group">
+				<?php  echo $this->formCollection($form);?>
+				</div>
+
+				</fieldset>	
+				<?php echo $this->form()->closeTag(); ?>	
+				
+				</div>
+</div>
+</div>
+<div class="col-md-2"></div>
+</div>

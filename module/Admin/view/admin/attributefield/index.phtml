@@ -1,0 +1,95 @@
+<?php
+// module/Album/view/album/album/index.phtml:
+
+$title = 'Attribute set List';
+$this->headTitle($title);
+?><?php //echo $this->escapeHtml($title); ?>
+<p><a href="/admin/attributefield/add" class="btn btn-primary"><i class="fa fa-plus"></i>
+	 Add New Attribute Field</a></p>
+	<div class="row">
+	<div class="col-md-12">
+	<div class="panel panel-default">
+	<div class="panel-heading">
+	<i class="fa fa-external-link-square"></i>
+	<span style="padding-left:25px;">Attribute Field List</span>
+	<div class="panel-tools">
+	<a class="btn btn-xs btn-link panel-collapse collapses" href="#">
+	</a>
+	<a class="btn btn-xs btn-link panel-config" href="#panel-config" data-toggle="modal">
+	<i class="fa fa-wrench"></i>
+	</a>
+	<a class="btn btn-xs btn-link panel-refresh" href="#">
+	<i class="fa fa-refresh"></i>
+	</a>
+	<a class="btn btn-xs btn-link panel-expand" href="#">
+	<i class="fa fa-resize-full"></i>
+	</a>
+	<a class="btn btn-xs btn-link panel-close" href="#">
+	<i class="fa fa-times"></i>
+	</a>
+	</div>
+	</div>
+	<div class="panel-body">
+	<table class="table table-hover" id="sample-table-1">		
+	<thead>
+	<tr>
+	<th class="center">#</th>
+	<th>Attribute Set Name</th>
+	<th>Field Name</th>
+	<th>Field Type</th>
+	<th class="hidden-xs">Status</th>
+	
+	</tr>
+	</thead>
+	<tbody>
+	<?php foreach($attributefields as $attributefield) : ?>
+	<tr>
+	<td class="center"><?php print $attributefield['id']; ?></td>
+	<td class="hidden-xs"><?php echo $this->escapeHtml($attributefield['setName']);?></td>
+	<td class="hidden-xs"><?php echo $this->escapeHtml($attributefield['fieldName']);?></td>
+	<td class="hidden-xs"><?php echo $this->escapeHtml($attributefield['fieldType']);?></td>
+	<td class="hidden-xs" id="changeStatus<?php print $attributefield['id'];?>"><?php print ($attributefield['active'] == 1) ? '<span id="'.$attributefield['id'].'" class="label label-sm label-success change_status" onClick=clickMe(this,\'deactive\')>Active</span>' : '<span id="'.$attributefield->id.'" class="label label-sm label-danger change_status" onClick=clickMe(this,\'active\')>Expired</span>'; ?>
+	
+	</td>
+	
+	</tr>
+	<?php endforeach; ?>
+	</tbody>
+	</table>
+	</div>
+	</div>
+
+
+
+
+
+	</div></div>
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

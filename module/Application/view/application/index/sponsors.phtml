@@ -1,0 +1,22 @@
+
+<?php //print $this->escapeHtml( $row->name ); ?>
+
+	<div class="per_content_area" id="screenshots">
+	
+		<h2 class="no_mrg"><img src="<?php print $this->basePath();?>/frontend/images/heading_icon.png" > Game Sponsors</h2>
+		<?php if($this->game_sponsors->count() > 0 ):?>
+		<div class="screen_short_area ">
+		<ul class="screen_short clearfix">
+		<?php foreach($this->game_sponsors as $row): ?>
+		<li><a href="<?php print $row->external_url;?>" data-group="set1" class="html5lightbox" title="<?php print $this->escapeHtml( $row->name ); ?>"><img src="<?php print $this->basePath();?>/upload/thumb/<?php print $row->field_image;?>" ></a></li>
+		<?php endforeach ; ?>
+		</ul>
+		</div>
+		<?php endif; ?>	
+	
+	</div>
+
+
+
+
+

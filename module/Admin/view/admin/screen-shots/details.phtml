@@ -1,0 +1,53 @@
+<?php
+// module/Album/view/album/album/index.phtml:
+
+$title = 'Page Details';
+$this->headTitle($title);
+?><?php //echo $this->escapeHtml($title); ?>
+
+	<div class="page-header">
+		<h1><?php print $row->title; ?> <small>basic page</small></h1>
+	</div>
+
+
+<h3><?php //print $row->title; ?></h3>
+
+
+<?php if($row->short_note) :  ?>
+<p class="text-muted">
+<h4>Short Note:</h4>
+<?php print $row->short_note; ?>
+</p>
+<?php endif; ?>
+
+
+
+
+
+<?php if($row->field_image) :  ?>
+<p>
+<h4>Attached Image:</h4>
+<img alt="" src="<?php print $this->basePath();?>/upload/thumb/<?php print $row->field_image; ?>">
+</p>
+<?php endif; ?>
+ 
+ 
+<?php if($row->created_on) :  ?>
+<p class="text-danger">
+Created On : <code><?php print $row->created_on;?></code>
+</p>
+<?php endif; ?>
+ 
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

@@ -1,0 +1,59 @@
+<?php
+$title = 'Add New Attribute Set';
+$this->headTitle($title);
+?>
+<!-- <h1><?php //echo $this->escapeHtml($title); ?></h1> -->
+
+
+<?php
+if(!isset($noSetSelected))
+{
+?>
+<p><a href="<?php print $this->basePath(); ?>/admin/clothing/add" class="btn btn-light-grey "><i class="fa fa-arrow-circle-left"> Back </i></a></p>
+
+<div class="row">
+<div class="col-md-2"></div>
+<div class="col-md-8">
+	<!-- start: FORM VALIDATION 1 PANEL -->
+	<div class="panel panel-default">
+		<div class="panel-heading"> <b>Add Field value</b> </div>
+	
+				<div class="panel-body">
+				<?php
+				$form = $this->form;
+				$form->setAttribute('action', $this->url('clothing', array('action' => 'add')));
+				$form->prepare();
+				echo $this->form()->openTag($form);  ?>
+				<fieldset>
+				<div class="form-group">
+				<?php  echo $this->formCollection($form);?>
+				</div>
+
+				</fieldset>	
+				<?php echo $this->form()->closeTag(); ?>	
+				
+				</div>
+</div>
+</div>
+<div class="col-md-2"></div>
+</div>
+<?php
+
+} else {
+?>
+<p><a href="<?php print $this->basePath(); ?>/admin/weapon/index" class="btn btn-light-grey"><i class="fa fa-arrow-circle-left"> Back </i></a></p>
+<div class="form-group">
+<label for="form-field-select-1">Select Attribute Type</label>
+<form name="myFrm" id="myFrm" action="<?php print $this->basePath(); ?>/admin/clothing/add">
+<select class="form-control" id="form-field-selectsetList">
+	<option value="">Select Option</option>
+	<?php foreach($attributesetLists as $attributesetList){ ?>
+	<option value="<?php echo $attributesetList->id; ?>"><?php echo $attributesetList->name; ?></option>
+	<?php } ?>
+</select>
+<form>
+</div> 
+ 
+<?php 
+}
+?>

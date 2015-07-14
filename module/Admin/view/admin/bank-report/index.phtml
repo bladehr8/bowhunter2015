@@ -1,0 +1,175 @@
+<?php
+// module/Album/view/album/album/index.phtml:
+
+$title = 'Player Position Lists';
+$this->headTitle($title);
+?><?php //echo $this->escapeHtml($title); ?>
+
+<div class="page-header">
+<h1>Transaction Report <small>common form elements and layouts</small></h1> 
+</div>
+
+
+<?php if(count($flashMessages)) : ?>
+			<div class="row">
+					<div class="col-md-12">
+							<div class="alert alert-success">
+							<button class="close" data-dismiss="alert">
+							×
+							</button>
+							<i class="fa fa-check-circle"></i>
+							<?php foreach ($flashMessages as $msg) : ?>
+							 <?php echo $msg; ?>
+							<?php endforeach; ?>
+							</div>
+					</div>
+			</div>
+<?php endif; ?>	
+
+			<div class="row">
+				<form id="search-report" class="form-ad-report" name="search-report" method="post" action="<?php print $this->basePath();?>/admin/bank-report/index"> 
+				
+					<div class="col-md-2"><p>Payment Status</p>					
+					<div class="input-group">
+					<select class="form-control" id="form-field-select-1" name="payment_status">
+					<option value="">Select Status</option>
+					<option value="pending">Pending</option>
+					<option value="processing">Processing</option>
+					<option value="success">Success</option>
+					<option value="cancel">Cancel</option>
+					</select>
+					</div>
+					</div>	
+				
+				
+				
+					<div class="col-md-4"><p> Show Results By Date Range</p>					
+					<div class="input-group">
+					<span class="input-group-addon"> <i class="fa fa-calendar"></i> </span>
+					<input type="text" class="form-control date-range" name="daterange" value="<?php if($this->daterange) print $this->daterange ; ?>">
+					</div>
+					</div>
+					
+					<div class="col-md-1"><p>&nbsp;</p>
+					<div class="input-group">
+					<input type="submit" value="Search" id="submitbutton" class="btn btn-bricky" name="submit">
+					</div>
+					</div>
+					
+					<div class="col-md-1"><p>&nbsp;</p>
+					<div class="input-group">
+					<input type="button" value="Reset" id="resetbutton" class="btn btn-success" name="submit">
+					</div>
+					</div>
+				</form>
+		</div>
+<hr>
+
+	
+
+	<div class="row">
+	<div class="col-md-12">
+	<div class="panel panel-default">
+	<div class="panel-heading">
+	<i class="fa fa-external-link-square"></i>
+	<span style="padding-left:25px;">Payment History</span>
+	<div class="panel-tools">
+	<a class="btn btn-xs btn-link panel-collapse collapses" href="#">
+	</a>
+	<a class="btn btn-xs btn-link panel-config" href="#panel-config" data-toggle="modal">
+	<i class="fa fa-wrench"></i>
+	</a>
+	<a class="btn btn-xs btn-link panel-refresh" href="#">
+	<i class="fa fa-refresh"></i>
+	</a>
+	<a class="btn btn-xs btn-link panel-expand" href="#">
+	<i class="fa fa-resize-full"></i>
+	</a>
+	<a class="btn btn-xs btn-link panel-close" href="#">
+	<i class="fa fa-times"></i>
+	</a>
+	</div>
+	</div>
+	
+	<div class="panel-body">
+	<table class="table table-hover" id="sample-table-1">		
+	<thead>
+	<tr>
+	<th class="center">#Transaction-Id</th>	
+	<th class="center">Pay Amount ($)</th>
+	<th class="hidden-xs">Product Name</th>
+	<th class="hidden-xs">User Name</th>
+	<th class="hidden-xs">Date</th>
+	<th class="hidden-xs">Payment Status</th>
+
+	</tr>
+	</thead>
+	<?php if( 0=== $rows->count()) { ?>
+	<tr><td class="left" colspan="7" ><p class="text-danger">No results found !</p></td></tr>
+	<?php } else { ?>
+	<tbody>
+	<?php foreach($rows as $row) : ?>
+	<tr>
+	<td class="center"><?php print $row->transaction_id; ?></td>
+	<td class="center"><?php print $row->pay_amount; ?></td>
+	<td class="hidden-xs"><?php print $row->product_name; ?></td>
+	<td class="hidden-xs"><a href="<?php print $this->basePath();?>/admin/player/details/<?php print $row->player_id; ?>" ><?php print $row->name;?></a></td>
+	<td class="hidden-xs"><?php print date("m/d/Y" , $row->created_on );?></td>
+	<td class="hidden-xs">
+
+	
+	<?php 
+	if('failure' === $row->status )
+		print  '<span class="label label-danger">' .  ucwords(strtolower($row->status)) . '</span>';
+	if('success' === $row->status )
+		print  '<span class="label label-success">' .  ucwords(strtolower($row->status)) . '</span>';
+	
+	?>
+	
+	
+	</td>
+	
+	
+
+	</tr>
+	<?php endforeach; ?>
+	</tbody>
+	<?php } ?>
+	</table>
+	</div>
+	</div>
+
+
+
+
+
+	</div></div>
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

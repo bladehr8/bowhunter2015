@@ -1,0 +1,66 @@
+<div id="top_part">
+          <div class="container">
+    <div class="header_section">
+              <div class="row">
+        <div class="col-md-4">
+                  <div class="logo"><a href="<?php print $this->basePath();?>/application/index"><img src="<?php print $this->basePath();?>/frontend/images/logo.png" ></a></div>
+                </div>
+        <div class="col-md-8">
+                  <div class="login_now">
+            <ul>
+                      <li class="txt"><a href="<?php print $this->basePath();?>/application/index/subscribe">Subscriber Sign up</a></li>
+					 
+							<?php //print $this->layout()->fb_session_email ; ?>
+					  <?php if ( ( isset($this->layout()->fb_session_email)  || isset($this->layout()->gplusaccess_token )  )) { ?>	 
+					  <li>&nbsp;</li>				  
+					<li><?php if( isset($this->layout()->fb_session_fbid) )  :?>
+						<img src="https://graph.facebook.com/<?php echo $this->layout()->fb_session_fbid; ?>/picture" class="login_img">
+						<?php endif;?>
+						<?php if( isset($this->layout()->gplusaccess_token)) :?>
+						<img src="<?php print $this->layout()->gplusuer['image']['url'];?>" class="login_img">	
+						<?php endif;?>
+					<div>
+								<div><a href="#collapse1" class="nav-toggle"></a></div>
+								<div id="collapse1" style="display:none" class="player_drop">
+								<ul>
+								<li><a href="<?php print $this->basePath();?>/application/player/player-profile" >My Profile</a></li>
+								<?php if( isset($this->layout()->gplusaccess_token )  ) { ?>
+								<li><a href="<?php print $this->basePath();?>/application/index?logout=true" >Log Out</a></li>
+								<?php } else { ?><li><a href="<?php print $this->layout()->fb_logout_url; ?>" >Log Out</a></li> <?php } ?>
+								</ul>
+								</div>
+					</div>
+					</li>
+					<?php } else { ?>
+				<li><a href="<?php print $this->layout()->fb_login_url; ?>" class="pic"><img src="<?php print $this->basePath();?>/frontend/images/facebook_signup.jpg" alt="" width="120" height="34" border="0"></a></li>
+				<li><a href="<?php print $this->layout()->gplusAuthUrl ;?>"><img src="<?php print $this->basePath();?>/frontend/images/googleplus_signup.jpg" alt="" width="120" height="34" border="0"></a></li>	
+					  
+					  
+					  <?php } ?>
+
+					
+					
+					
+                    </ul>
+          </div>
+     <ul class="slimmenu">
+	<li><a href="<?php print $this->basePath();?>/application/page/index/how-to-play" <?php if($this->active_menu == 'how-to-play' ) : ?> class="active" <?php endif;?> >How to play</a></li>
+	<li><a href="<?php print $this->basePath();?>/application/page/index/about-game" <?php if($this->active_menu == 'about-game' ) : ?> class="active" <?php endif;?>>ABOUT GAME</a></li>
+	<li><a href="<?php print $this->basePath();?>/application/page/index/tournaments-bowhunter" <?php if($this->active_menu == 'tournaments-bowhunter' ) : ?> class="active" <?php endif;?>>Tournaments</a></li>          
+            <li><a href="#">Other Games</a>
+			<?php if($this->layout()->others_game_lists ) :?>
+			<ul>
+			<?php foreach( $this->others_game_lists as $row ) : ?>
+			<li><a href="<?php print $row->external_link; ?>" target="_blank"><img src="<?php print $this->basePath();?>/upload/thumb/<?php print $row->field_image; ?>" alt="<?php print $row->title; ?>"><?php print $row->title; ?></a></li>
+			<?php endforeach; ?>
+			</ul>
+			<?php endif; ?>
+             </li>
+            <li><a href="<?php print $this->basePath();?>/application/index/customer-support" <?php if($this->active_menu == 'customer-support' ) : ?> class="active" <?php endif;?>>Customer Support</a></li>
+          </ul>
+                  <div class="clear"></div>
+                </div>
+      </div>
+            </div>
+  </div>
+</div>

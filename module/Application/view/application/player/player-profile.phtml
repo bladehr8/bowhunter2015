@@ -1,0 +1,270 @@
+<?php
+$title = 'Player List';
+$this->headTitle($title);
+//if (isset($this->fb_session_obj->FBID)): 
+//echo '<pre>'; print_r($this->layout()->fbuserprofile); exit();
+if( empty($this->player_rank[0]['field_icon']) ) { $rankIcon = '1_junior.png'; $rankName = 'Junior';} 
+else { $rankIcon = $this->player_rank[0]['field_icon'] ; $rankName = $this->player_rank[0]['name']; }
+?>
+
+<div class="player_cont">
+	  <div class="iner_content_pl">
+	<h2 class="no_mrg">
+	<?php if( isset($this->layout()->fb_session_fbid) )  :?>
+	<img src="https://graph.facebook.com/<?php echo $this->layout()->fb_session_fbid; ?>/picture" class="gap_i profile_img">
+	<?php print $this->layout()->fbuserprofile['first_name'] ; ?>
+	<?php endif;?>
+	<?php if( isset($this->layout()->gplusaccess_token)) :?>
+	<img src="<?php print $this->layout()->gplusuer['image']['url'];?>" class="gap_i profile_img">
+	<?php print $this->layout()->gplusuer['name']['givenName'];?>
+	<?php endif;?>
+	
+	
+	
+	</h2><br>
+	<div class="table-responsive">
+		  <table class="table border_pl">
+		<tr>
+			  <td rowspan="2" class="border_pl1 gap_gs" align="center">
+			  <img src="<?php print $this->basePath();?>/upload/thumb/<?php print $rankIcon ; ?>" alt="<?php print $this->player_rank[0]['name']; ?>"/> <br>
+			  <?php print $rankName ; ?>
+			  
+			  
+			  </td>
+			  <td class="border_pl1 text_a" valign="middle" align="center">XP LEVEL</td>
+			  <td class="border_pl1 text_a" valign="middle" align="center">GOLD&nbsp;<img src="<?php print $this->basePath();?>/frontend/images/pl_gold_star1.png" alt=""/></td>
+			  <td class="text_a" valign="middle" align="center">OBUCKS&nbsp;<img src="<?php print $this->basePath();?>/frontend/images/pl_gold_star2.png" alt=""/></td>
+			</tr>
+		<tr>
+			  <td class="border_pl1" valign="middle" align="center"><?php print (empty($this->player_details['xpPoint'])) ? 0 : $this->player_details['xpPoint'] ; ?></td>
+			  <td class="border_pl1" valign="middle" align="center"><?php print (empty($this->player_details['totalPremiumCurrency'])) ? 0 : $this->player_details['totalPremiumCurrency'] ; ?></td>
+			  <td class="" valign="middle" align="center"><?php print ( empty($this->player_details['totalNormalCurrency'] )) ? 0 : $this->player_details['totalNormalCurrency'] ; ?></td>
+			</tr>
+		<div class="clear"></div>
+	  </table>
+		</div>
+	<div class="regin_cont border_pl">
+		  <div class="row border_pl2">
+		<div class="col-md-6 col-sm-6 text_1_region border_pl3">REGION PROGRESSION</div>
+		<div class="col-md-6 col-sm-6 text_1_region">LEVEL PROGRESSION</div>
+	  </div>
+	  
+		<div class="row border_pl2">
+		<div class="col-md-6 col-sm-6 text_1_region2 border_pl3">Region 1</div>
+		<div class="col-md-6 col-sm-6 text_1_region2">None</div>
+		</div>
+		
+		<div class="row border_pl2">
+		<div class="col-md-6 col-sm-6 text_1_region2 border_pl3">Region 2</div>
+		<div class="col-md-6 col-sm-6 text_1_region2">None</div>
+		</div>
+		
+		<div class="row border_pl2">
+		<div class="col-md-6 col-sm-6 text_1_region2 border_pl3">Region 3</div>
+		<div class="col-md-6 col-sm-6 text_1_region2">None</div>
+		</div>
+		
+		<div class="row border_pl2">
+		<div class="col-md-6 col-sm-6 text_1_region2 border_pl3">Region 4</div>
+		<div class="col-md-6 col-sm-6 text_1_region2">None</div>
+		</div>		
+		
+		
+		
+		
+		
+
+		
+		
+		  <div class="clear"></div>
+		</div>
+  </div>
+  <?php /* ?>
+	  <div class="content_tab">
+	<div id="horizontalTab">
+		  <ul class="resp-tabs-list">
+		<li>Joined Tournament</li>
+		<li >Completed Tournamet</li>
+	  </ul>
+		  <div class="resp-tabs-container"> 
+		<!--first tab-->
+		<div>
+			  <div class="tournament_area">
+			<div class="panel-group" id="accordion"> 
+				  
+				  <!-- 1 -->
+				  
+				  <div class="panel panel-default">
+				<div class="panel-heading">
+					  <h4 class="panel-title"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"> Daily Tournament <i class="indicator glyphicon glyphicon-minus  pull-right"></i> </a> </h4>
+					</div>
+				<div id="collapseOne" class="panel-collapse collapse in">
+					  <div class="panel-body">
+					<div class="scroll_wrapper">
+						  <div class="heading1">First Tournament</div>
+						  <p>While the game is presented through protagonist Desmond Miles, the bulk of the game is played as Desmond experiences the memories of his ancestors through an advanced device called the Animus. This provides a means of a diegetic interface, showing Desmond's ancestor's health, equipment, goals, and other features as part of the Animus interface. The Animus is based on the player controlling the assassin to maintain the synchronization between Desmond and his</p>
+						  <div class="heading2">Leader Board <span aria-hidden="true" class="glyphicon glyphicon-chevron-down pull-right up_arw"></span></div>
+						  <!-- scrall -->
+						  <div class="scroll_pan">
+						<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+					  </div>
+						</div>
+				  </div>
+					</div>
+			  </div>
+				  
+				  <!-- 2 -->
+				  
+				  <div class="panel panel-default">
+				<div class="panel-heading">
+					  <h4 class="panel-title"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"> Tournament Name <i class="indicator glyphicon glyphicon-plus  pull-right"></i> </a> </h4>
+					</div>
+				<div id="collapseTwo" class="panel-collapse collapse">
+					  <div class="panel-body">
+					<div class="scroll_wrapper">
+						  <div class="heading1">First Tournament</div>
+						  <p>While the game is presented through protagonist Desmond Miles, the bulk of the game is played as Desmond experiences the memories of his ancestors through an advanced device called the Animus. This provides a means of a diegetic interface, showing Desmond's ancestor's health, equipment, goals, and other features as part of the Animus interface. The Animus is based on the player controlling the assassin to maintain the synchronization between Desmond and his</p>
+						  <div class="heading2">Leader Board <span aria-hidden="true" class="glyphicon glyphicon-chevron-down pull-right up_arw"></span></div>
+						  <!-- scrall -->
+						  <div class="scroll_pan">
+						<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+					  </div>
+						</div>
+				  </div>
+					</div>
+			  </div>
+				  
+				  <!-- 3 -->
+				  
+				  <div class="panel panel-default">
+				<div class="panel-heading">
+					  <h4 class="panel-title"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree"> Tournament Name <i class="indicator glyphicon glyphicon-plus pull-right"></i> </a> </h4>
+					</div>
+				<div id="collapseThree" class="panel-collapse collapse">
+					  <div class="panel-body">
+					<div class="scroll_wrapper">
+						  <div class="heading1">First Tournament</div>
+						  <p>While the game is presented through protagonist Desmond Miles, the bulk of the game is played as Desmond experiences the memories of his ancestors through an advanced device called the Animus. This provides a means of a diegetic interface, showing Desmond's ancestor's health, equipment, goals, and other features as part of the Animus interface. The Animus is based on the player controlling the assassin to maintain the synchronization between Desmond and his</p>
+						  <div class="heading2">Leader Board <span aria-hidden="true" class="glyphicon glyphicon-chevron-down pull-right up_arw"></span></div>
+						  <!-- scrall -->
+						  <div class="scroll_pan">
+						<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+					  </div>
+						</div>
+				  </div>
+					</div>
+			  </div>
+				  
+				  <!----> 
+				  
+				</div>
+		  </div>
+			  <div class="clear"></div>
+			</div>
+		<!--first tab--> 
+		<!--second tab-->
+		<div>
+			  <div class="tournament_area">
+			<div class="panel-group" id="accordion"> 
+				  
+				  <!-- 1 -->
+				  
+				  <div class="panel panel-default">
+				<div class="panel-heading">
+					  <h4 class="panel-title"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"> Daily Tournament <i class="indicator glyphicon glyphicon-minus  pull-right"></i> </a> </h4>
+					</div>
+				<div id="collapseOne" class="panel-collapse collapse in">
+					  <div class="panel-body">
+					<div class="scroll_wrapper">
+						  <div class="heading1">First Tournament</div>
+						  <p>While the game is presented through protagonist Desmond Miles, the bulk of the game is played as Desmond experiences the memories of his ancestors through an advanced device called the Animus. This provides a means of a diegetic interface, showing Desmond's ancestor's health, equipment, goals, and other features as part of the Animus interface. The Animus is based on the player controlling the assassin to maintain the synchronization between Desmond and his</p>
+						  <div class="heading2">Leader Board <span aria-hidden="true" class="glyphicon glyphicon-chevron-down pull-right up_arw"></span></div>
+						  <!-- scrall -->
+						  <div class="scroll_pan">
+						<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+					  </div>
+						</div>
+				  </div>
+					</div>
+			  </div>
+				  
+				  <!-- 2 -->
+				  
+				  <div class="panel panel-default">
+				<div class="panel-heading">
+					  <h4 class="panel-title"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"> Tournament Name <i class="indicator glyphicon glyphicon-plus  pull-right"></i> </a> </h4>
+					</div>
+				<div id="collapseTwo" class="panel-collapse collapse">
+					  <div class="panel-body">
+					<div class="scroll_wrapper">
+						  <div class="heading1">First Tournament</div>
+						  <p>While the game is presented through protagonist Desmond Miles, the bulk of the game is played as Desmond experiences the memories of his ancestors through an advanced device called the Animus. This provides a means of a diegetic interface, showing Desmond's ancestor's health, equipment, goals, and other features as part of the Animus interface. The Animus is based on the player controlling the assassin to maintain the synchronization between Desmond and his</p>
+						  <div class="heading2">Leader Board <span aria-hidden="true" class="glyphicon glyphicon-chevron-down pull-right up_arw"></span></div>
+						  <!-- scrall -->
+						  <div class="scroll_pan">
+						<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+					  </div>
+						</div>
+				  </div>
+					</div>
+			  </div>
+				  
+				  <!-- 3 -->
+				  
+				  <div class="panel panel-default">
+				<div class="panel-heading">
+					  <h4 class="panel-title"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree"> Tournament Name <i class="indicator glyphicon glyphicon-plus pull-right"></i> </a> </h4>
+					</div>
+				<div id="collapseThree" class="panel-collapse collapse">
+					  <div class="panel-body">
+					<div class="scroll_wrapper">
+						  <div class="heading1">First Tournament</div>
+						  <p>While the game is presented through protagonist Desmond Miles, the bulk of the game is played as Desmond experiences the memories of his ancestors through an advanced device called the Animus. This provides a means of a diegetic interface, showing Desmond's ancestor's health, equipment, goals, and other features as part of the Animus interface. The Animus is based on the player controlling the assassin to maintain the synchronization between Desmond and his</p>
+						  <div class="heading2">Leader Board <span aria-hidden="true" class="glyphicon glyphicon-chevron-down pull-right up_arw"></span></div>
+						  <!-- scrall -->
+						  <div class="scroll_pan">
+						<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+					  </div>
+						</div>
+				  </div>
+					</div>
+			  </div>
+				  
+				  <!----> 
+				  
+				</div>
+		  </div>
+			  <div class="clear"></div>
+			</div>
+		<!--second tab--> 
+		
+	  </div>
+		</div>
+  </div> <?php */ ?>
+	  <div class="clear"></div>
+	</div>
+
+
+
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

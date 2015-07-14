@@ -1,0 +1,18 @@
+<?php if($this->interview_video->count() > 0 ):?>
+
+<?php foreach($this->interview_video as $row):?>
+<?php
+		$url = $row->youtube_link;
+		preg_match( '/[\\?\\&]v=([^\\?\\&]+)/',   $url,  $matches  );
+		$VIDEO_ID = $matches[1]; 	
+?>
+<div class="per_content_area">
+<h2 class="no_mrg"><img src="<?php print $this->basePath();?>/upload/thumb/<?php print $row->field_image; ?>" class="video_img" ><?php print $row->title; ?></h2>
+<div align="center" class="video_img_area">
+<iframe width="560" height="368" src="http://www.youtube.com/embed/<?php print $VIDEO_ID ; ?>" frameborder="0" allowfullscreen ></iframe> 
+</div>
+</div>
+<?php endforeach; ?>
+
+
+<?php endif; ?>

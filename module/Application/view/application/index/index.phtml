@@ -1,0 +1,173 @@
+<div class="per_content_area">
+<h2 class="no_mrg"><img src="<?php print $this->basePath();?>/frontend/images/heading_icon.png" >About Game</h2>
+<p><?php if($this->home_pages) print $this->home_pages->short_note ; ?></p>
+<!--<p><a href="<?php print $this->basePath();?>/application/page/index/about-game" class="link pull-right">Read More</a>-->
+<div class="clearfix"></div>
+</p>
+</div>
+<!--
+	<div class="per_content_area" id="screenshots">
+	<h2 class="no_mrg"><img src="/frontend/images/heading_icon.png" > Screen Shots</h2>
+	<div class="screen_short_area ">
+	<ul class="screen_short clearfix">
+	<li><a href="/frontend/images/screeshot_1_big.jpg" data-group="set1" class="html5lightbox"><img src="/frontend/images/screeshot_1.jpg" ></a></li>
+	<li><a href="images/screeshot_2_big.jpg" data-group="set1" class="html5lightbox"><img src="/frontend/images/screeshot_2.jpg" data-group="set1" class="html5lightbox" ></a></li>
+	<li><a href="images/screeshot_3_big.jpg" data-group="set1" class="html5lightbox"><img src="/frontend/images/screeshot_3.jpg" data-group="set1" class="html5lightbox" ></a></li>
+	<li><a href="images/screeshot_1_big.jpg" data-group="set1" class="html5lightbox"><img src="/frontend/images/screeshot_1.jpg" data-group="set1" class="html5lightbox"></a></li>
+	<li><a href="images/screeshot_2_big.jpg" data-group="set1" class="html5lightbox"><img src="/frontend/images/screeshot_2.jpg" data-group="set1" class="html5lightbox" ></a></li>
+	<li><a href="images/screeshot_3_big.jpg" data-group="set1" class="html5lightbox"><img src="/frontend/images/screeshot_3.jpg" data-group="set1" class="html5lightbox" ></a></li>
+	</ul>
+	<div class="pagination_area clearfix">
+	<div class="pagi_left"><a href="#">Previous</a></div>
+	<div class="pagi_right"><a href="#" class="active">Next</a></div>
+	<div class="pagi_mid">
+	<ul>
+	<li><a href="#">1</a></li>
+	<li><a href="#">2</a></li>
+	<li><a href="#">3</a></li>
+	<li><a href="#">4</a></li>
+	<li><a href="#">5</a></li>
+	<li><a href="#">...</a></li>
+	</ul>
+	</div>
+	</div>
+	</div>
+	</div>
+	
+-->	
+<?php if( $this->screen_shots->count() > 0 ): ?>
+<div class="per_content_area" id="screenshots">
+<h2 class="no_mrg"><img src="<?php print $this->basePath();?>/frontend/images/heading_icon.png" > Screen Shots  </h2>
+<!-- Jssor Slider Begin -->
+<!-- You can move inline styles to css file or css block. -->
+<div id="slider1_container" class="common_slider" style="position: relative; width: 700px; height: 410px; overflow: hidden; ">  
+	<!-- Slides Container -->
+	<div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 722px; height: 380px;overflow: hidden;">
+	   <?php $colCount = 1; ?>
+		<div class="gap_slid">
+		 <?php foreach($this->screen_shots as $row) : ?>			 
+			<a class="html5lightbox appicon03" href="<?php print $this->basePath() ;?>/upload/screen-shots/<?php print $row->field_image ; ?>" data-group="set1">
+				<img src="<?php print $this->basePath() ;?>/upload/thumb/<?php print $row->field_image ; ?>" data-group="set1" class="html5lightbox">
+			</a>				
+			<?php 
+			if($colCount >=6 ) { $colCount=1; print '</div> <div>';}
+			else { $colCount++ ; }				
+			?>
+			 <?php endforeach ; ?> 			
+
+		</div>
+
+	</div>
+	<!-- Bullet Navigator Skin Begin -->
+   
+	<!-- bullet navigator container -->
+	<div u="navigator" class="jssorb18 pagin_new1" >
+		<!-- bullet navigator item prototype -->
+		<div u="prototype" style="position: absolute; width: 24px; height: 24px; text-align: center;line-height: 24px; font-size: 16px;">
+			
+			<div u="numbertemplate" class=n></div>
+		</div>
+	</div>
+	<!-- Bullet Navigator Skin End -->
+	
+	<div class="navigation" style="bottom: 12px;">
+		<span class="prev_icon sl_prev1"><a href="javascript:void(0);">Previous</a></span>
+		<span class="next_icon"><a href="javascript:void(0);">Next</a></span>
+	</div>	
+</div>
+<!-- Jssor Slider End -->
+</div>
+<?php endif ; ?>	
+	
+	<!--
+	<div class="per_content_area" id="video">
+	<h2 class="no_mrg"><img src="/frontend/images/heading_icon.png" > Video</h2>
+	<div align="center" class="video_img_area"> <img src="/frontend/images/video_img_1.jpg" > </div>
+		<div class="pagination_area clearfix">
+		<div class="pagi_left"><a href="#">Previous</a></div>
+		<div class="pagi_right1"><a href="#" class="active">Next</a></div>
+			<div class="pagi_mid">
+				<ul>
+					<li><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+					<li><a href="#">5</a></li>
+					<li><a href="#">...</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	
+-->	
+	
+	
+	
+<div class="per_content_area" id="video">
+				<h2 class="no_mrg"><img src="<?php print $this->basePath();?>/frontend/images/heading_icon.png" > Video</h2>
+				
+			    <!-- Jssor Slider Begin -->
+    <!-- You can move inline styles to css file or css block. -->
+    <div id="slider2_container" class="common_slider" style="position: relative; top: 0px; left: 0px; width: 740px; height: 450px; overflow: hidden; ">
+      
+        <!-- Slides Container -->
+        <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 722px; height: 390px;  overflow: hidden;">
+		<?php $videoString = '';?>
+		<?php foreach($this->game_video as $row):?>	
+		<?php
+			$url = $row->youtube_link;			
+			//$url = 'http://www.youtube.com/watch?v=fHBFvlQ3JGY';
+			preg_match( '/[\\?\\&]v=([^\\?\\&]+)/',   $url,  $matches  );
+			$id = $matches[1]; 	
+		?>
+
+		
+            <div class="vid_sl"> 
+			<iframe width="709" height="391" src="http://www.youtube.com/embed/<?php print $id ; ?>"></iframe> </div>
+		<?php endforeach ; ?>	
+
+            
+        </div>
+        <!-- Bullet Navigator Skin Begin -->
+       
+        <!-- bullet navigator container -->
+        <div u="navigator" class="jssorb18" style="position: absolute; bottom: 16px; right: 6px;">
+            <!-- bullet navigator item prototype -->
+            <div u="prototype" style="position: absolute; width: 24px; height: 24px; text-align: center;line-height: 24px; font-size: 16px;">
+                <div u="numbertemplate" class=n></div>
+            </div>
+        </div>
+        <!-- Bullet Navigator Skin End -->
+        
+ 
+		
+	<div class="navigation" style="bottom: 18px;">
+		<span class="prev_icon sl_prev2"><a href="javascript:void(0);">Previous</a></span>
+		<span class="next_icon"><a href="javascript:void(0);">Next</a></span>
+	</div>			
+		
+		
+		
+		
+        
+        
+</div>
+    <!-- Jssor Slider End -->
+ </div>  
+            <!-- video -->
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+

@@ -1,0 +1,1 @@
+[21-Mar-2015 06:18:26 UTC] PHP Fatal error:  Using $this when not in object context in /home/bowhunter2015/public_html/bowhunter2015/huntinggame/module/SanRestful/view/error/index.phtml on line 1

@@ -1,0 +1,32 @@
+<?php
+// module/Album/view/album/album/index.phtml:
+
+$title = 'News Details';
+$this->headTitle($title);
+?>
+
+<div class="page-header">
+	<h1><?php print $this->escapeHtml($row->title); ?> <small>News page</small></h1>
+</div>
+
+<?php if($row->external_url) :  ?>
+	<p class="text-muted">
+	<h4>External Link:</h4>
+	<?php print $this->escapeHtml($row->external_url); ?>
+	</p>
+<?php endif; ?>
+
+
+<?php if($row->news_content) :  ?>
+	<p>
+	<h4>Detail Content:</h4>
+	<?php print $row->news_content; ?>
+	</p>
+<?php endif; ?>
+
+
+<?php if($row->created_on) :  ?>
+	<p class="text-danger">
+	Created On : <code><?php print $row->created_on;?></code>
+	</p>
+<?php endif; ?>

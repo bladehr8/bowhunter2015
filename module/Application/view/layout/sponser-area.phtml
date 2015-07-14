@@ -1,0 +1,33 @@
+<?php $totalSponsor = $this->site_sponsor->count() ; ?>
+<?php if($totalSponsor > 0 ) :?>
+
+<div class="sponsor_icon_area">
+          <div class="container">
+    <div class="content_section">
+        <div id="sponsorCarousel" class="carousel slide" data-ride="carousel"> 
+        <!-- Indicators -->
+        
+        <div class="carousel-inner">
+		
+         <div class="item active">
+		 <?php $sk=1; $loopCounter = 1; ?>
+		 <?php foreach($this->site_sponsor as $row):?>
+		 <?php $loopCounter++ ; ?>
+            <div class="spon_cont">
+			<a href="<?php print $row->external_url ; ?>" target="_blank"><img src="<?php print $this->basePath();?>/upload/thumb/<?php print $row->field_image ; ?>" border="0" ></a>
+			</div>
+			<?php 
+			if( $sk == 4 && $loopCounter <= $totalSponsor ) { $sk=1; print '</div><div class="item">';}
+			else { $sk++ ; }			
+			?>
+			<?php endforeach; ?>
+          </div>		
+        </div>
+		
+		
+      </div>
+      </div>
+  </div>
+</div>
+
+<?php endif; ?>

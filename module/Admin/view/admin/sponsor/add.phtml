@@ -1,0 +1,98 @@
+<?php
+//$bankDetails = $this->bank;
+$title = 'Add Sponsor Details';
+$this->headTitle($title);
+?>
+<div class="page-header">
+<h1>Game Sponsor <small> common form elements and layouts</small></h1>
+
+</div>
+
+
+
+<?php if(count($flashMessages)) : ?>
+			<div class="row">
+			<div class="col-md-12">
+					<div class="alert alert-success">
+					<button class="close" data-dismiss="alert">
+					×
+					</button>
+					<i class="fa fa-check-circle"></i>
+					<?php foreach ($flashMessages as $msg) : ?>
+					 <?php echo $msg; ?>
+					<?php endforeach; ?>
+					</div>
+			</div>
+			</div>
+<?php endif; ?>	
+
+
+
+
+<div class="row">
+<div class="col-md-2"></div>
+<div class="col-md-8">
+	<!-- start: FORM VALIDATION 1 PANEL -->
+	<div class="panel panel-default">
+		<div class="panel-heading"><i class="fa fa-external-link-square"></i> <b>Add Sponsor Details</b> </div>
+	
+		<div class="panel-body">
+			<?php
+			$form = $this->form;
+			$form->setAttribute('action', $this->url('sponsor', array('action' => 'add')));
+			$form->prepare();
+			echo $this->form()->openTag($form);
+			echo $this->formHidden($form->get('id'));
+			?>
+			<fieldset>
+			
+			<div class="form-group">
+			<?php print $this->formRow($form->get('name'));?>
+			</div>
+	
+			<div class="form-group">
+			<?php print $this->formRow($form->get('external_url'));?>
+			</div>
+
+								
+			<div class="form-group">
+			<label>Attached sponsor related image</label>
+
+				<div class="fileupload fileupload-new" data-provides="fileupload">
+						<div class="input-group">
+						<div class="form-control uneditable-input">
+						<i class="fa fa-file fileupload-exists"></i>
+						<span class="fileupload-preview"></span>
+						</div>
+						<div class="input-group-btn">
+						<div class="btn btn-light-grey btn-file">
+						<span class="fileupload-new"><i class="fa fa-folder-open-o"></i> Select file</span>
+						<span class="fileupload-exists"><i class="fa fa-folder-open-o"></i> Change</span>
+						<!--<input type="file" class="file-input"> -->
+						<?php print $this->formRow($form->get('field_image'));?>
+						</div>
+						<a href="#" class="btn btn-light-grey fileupload-exists" data-dismiss="fileupload">
+						<i class="fa fa-times"></i> Remove
+						</a>
+						</div>
+						</div>
+				</div>
+			<p class="help-block"> Supported extensions : <code>jpg,jpeg,png,gif</code></p>
+			</div>
+
+
+			<div class="form-group">
+			<?php print $this->formRow($form->get('active'));?>
+			</div>
+			
+			<div class="form-actions" align="right">
+			<?php print $this->formRow($form->get('submit'));?>
+			</div>
+			</fieldset>
+			
+		<?php echo $this->form()->closeTag(); ?>
+		</div>
+</div>
+</div>
+<div class="col-md-2"></div>
+</div>

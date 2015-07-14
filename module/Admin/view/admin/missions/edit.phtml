@@ -1,0 +1,377 @@
+<?php
+$title = 'Add New Tournament';
+$this->headTitle($title);
+?>
+<div class="page-header">
+<h1><i class="fa fa-plus"></i> Edit Mission <small>common form for adding mission</small></h1>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="row">
+
+<div class="col-sm-12">
+	<!-- start: FORM VALIDATION 1 PANEL -->
+<div class="panel panel-default">
+<div class="panel-heading"> <b>Edit Missions  <?php if(!empty($this->mission->name ) )  print 'for ' .$this->mission->name ; ?></b> </div>	
+<div class="panel-body">
+
+	<?php
+	$form = $this->form;
+	$form->setAttribute('action', $this->url('missions', array('action' => 'edit' ,'id'=> $this->id )));
+	$form->prepare();
+	echo $this->form()->openTag($form); 
+	echo $this->formHidden($form->get('id'));
+	?>
+	<?php //echo $this->formHidden($form->get('id')); ?>
+	<input type="hidden" id="count" value="<?php print $this->missionsHasDeerinfoSet->count();?>" name="count">
+	<div class="form-group">											
+	<div class="col-sm-5"><?php print $this->formRow($form->get('name'));?>		</div>
+	<div class="col-sm-1"></div>
+	<div class="col-sm-5"> <?php print $this->formRow($form->get('minimum_points_required'));?>	</div>						
+	</div>
+	<div class="form-group"><div class="col-sm-11">&nbsp;</div></div>
+	<div class="form-group">											
+	<div class="col-sm-5"><?php print $this->formRow($form->get('duration'));?>		</div>
+	<div class="col-sm-1"></div>
+	<div class="col-sm-5"> <?php print $this->formRow($form->get('recommended_gear'));?>	</div>						
+	</div>
+	<div class="form-group"><div class="col-sm-11">&nbsp;</div></div>
+
+	<div class="form-group">											
+	<div class="col-sm-5"><?php print $this->formRow($form->get('difficulty_level'));?>		</div>
+	<div class="col-sm-1"></div>
+	<div class="col-sm-5"> <?php print $this->formRow($form->get('xp_rewarded'));?>	</div>						
+	</div>						
+	<div class="form-group"><div class="col-sm-11">&nbsp;</div></div>
+
+	<div class="form-group">											
+	<div class="col-sm-5"><?php print $this->formRow($form->get('kill_for_success'));?>
+	<span class="help-block"><i class="fa fa-info-circle"></i> Indicate - Kill for Success</span> 
+	</div>
+	<div class="col-sm-1"></div>
+	<div class="col-sm-5"> <?php print $this->formRow($form->get('no_more_hunts'));?>
+	<span class="help-block"><i class="fa fa-info-circle"></i> Indicate - prevent the player from performing the hunt again</span> 
+	</div>						
+	</div>						
+	<div class="form-group"><div class="col-sm-11">&nbsp;</div></div>
+
+
+	<div class="form-group">											
+	<div class="col-sm-5"><?php print $this->formRow($form->get('premium_currency_rewarded'));?>		</div>
+	<div class="col-sm-1"></div>
+	<div class="col-sm-5"> <?php print $this->formRow($form->get('normal_currency_rewarded'));?>	</div>						
+	</div>					
+
+	<div class="form-group"><div class="col-sm-11">&nbsp;</div></div>	
+	<div class="form-group">											
+	<div class="col-sm-5"><?php print $this->formRow($form->get('hunt_types_id'));?>
+	<!-- <span class="help-block"><i class="fa fa-info-circle"></i> List of  Hunt Type</span> !-->
+
+
+
+	</div>
+	<div class="col-sm-1"></div>
+	<div class="col-sm-5"> <?php //print $this->formRow($form->get('hunt_suggestion_id'));?>	</div>						
+	</div>						
+
+	<div class="form-group"><div class="col-sm-11">&nbsp;</div></div>	
+	<div class="form-group">											
+	<div class="col-sm-5"><?php print $this->formRow($form->get('player_position_id'));?>		</div>
+	<div class="col-sm-1"></div>
+	<div class="col-sm-5"> <?php print $this->formRow($form->get('shorthand_target_type_id'));?>	</div>						
+	</div>							
+
+	<div class="form-group"><div class="col-sm-11">&nbsp;</div></div>	
+	<div class="form-group">											
+	<div class="col-sm-5"><?php print $this->formRow($form->get('region_id'));?>		</div>
+	<div class="col-sm-1"></div>
+	<div class="col-sm-5"> <?php print $this->formRow($form->get('light_conditions_id'));?>	</div>						
+	</div>							
+
+
+	<div class="form-group"><div class="col-sm-11">&nbsp;</div></div>	
+	<div class="form-group">											
+	<div class="col-sm-5"><?php print $this->formRow($form->get('kill_type_id'));?>		</div>
+	<div class="col-sm-1"></div>
+	<div class="col-sm-5"> <?php print $this->formRow($form->get('mission_objectives_id'));?>	</div>						
+	</div>							
+
+	<div class="form-group"><div class="col-sm-11">&nbsp;</div></div>	
+	<div class="form-group">											
+	<div class="col-sm-5"><?php //print $this->formRow($form->get('deer_information_id'));?>		</div>
+	<div class="col-sm-1"></div>
+	<div class="col-sm-5"> <?php //print $this->formRow($form->get('mission_objectives_id'));?>	</div>						
+	</div>							
+
+	<div class="form-group"><div class="col-sm-11">&nbsp;</div></div>	
+
+	<div class="form-group"><div class="col-sm-11">
+	<fieldset>
+	<legend>Please choose  hunt suggestion for this mission</legend>
+	<span class="label label-info"> NOTE!</span> <span class="text-danger" id="error" >Select maximum 4 options</span>
+									
+											
+		
+	<table class="table table-hover" id="CheckboxContainer">		
+	<thead>
+	<tr>
+	<th class="center">#</th>
+	<th class="center">Name</th>
+	<th class="center">Camou</th>
+	<th class="hidden-xs">Hitpower</th>
+	<th class="hidden-xs">Sight</th>
+	<th class="hidden-xs">Nsight</th>
+	<th class="hidden-xs">Infra_red</th>
+	<th class="hidden-xs">Thermal</th>	
+	<th class="hidden-xs">Stabilizer</th>
+	
+	
+	
+	</tr>
+	</thead>
+	<tbody>
+	<?php //print '<pre>'; print_r($this->missionsHasSuggestions); exit;?>
+	<?php foreach($suggestionSet as $val ) : ?>
+	<tr>
+	<td class="center"><input type="checkbox" value="<?php echo $val['id']; ?>"  name="huntSuggestion[]" <?php if( in_array($val['id'] ,$this->missionsHasSuggestions ) ) {?> checked <?php } ?>></td>
+	<td class="center"><?php print $this->escapeHtml($val['name']);?></td>	
+	<td class="center"><?php print $this->escapeHtml($val['camouflage_dress']) ;?></td>
+	
+	<td class="hidden-xs"><?php print $this->escapeHtml($val['hitpower']) ;?></td>
+	<td class="hidden-xs"><?php print $this->escapeHtml($val['sight']) ;?></td>
+	<td class="hidden-xs"><?php print $this->escapeHtml($val['nsight']) ;?></td>
+	<td class="hidden-xs"><?php print $this->escapeHtml($val['infra_red']) ;?></td>
+	<td class="hidden-xs"><?php print $this->escapeHtml($val['thermal']) ;?></td>
+	<td class="hidden-xs"><?php print $this->escapeHtml($val['stabilizer']) ;?></td>
+
+	</tr>
+	<?php endforeach; ?>
+	</tbody>
+	</table>	
+
+
+</fieldset>
+			
+	</div>
+	</div>	
+	
+	
+		<div class="form-group"><div class="col-sm-11">&nbsp;</div></div>	
+		<div class="form-group"><div class="col-sm-11"><?php //print $this->missionsHasDeerinfoSet->count() ;?>
+
+		<fieldset id="timesheet-rows"><legend>Please add deer information for this mission</legend>  
+
+				<?php if( $this->missionsHasDeerinfoSet->count() > 0 ) : ?>
+				<?php //echo '<pre>'; print_r($this->missionsHasDeerinfoSet); exit;?>
+				<?php foreach($this->missionsHasDeerinfoSet as $rowval) {  ?>
+				<div id="timesheet-row" class="form-group">	
+				<label><input type="hidden" id="has_deer_info_id" value="<?php print $rowval['id']; ?>" name="has_deer_info_id[]"></label>
+				<div class="col-sm-2">
+				<label>
+				<select class="form-control" required="required" name="deer_activity_id[]">
+				<?php foreach($deerActivityRows as $key => $val ) { ?>
+				<option value="<?php print $val ; ?>" <?php if($val == $rowval['deer_activity'] ) :?> selected <?php endif;?>><?php print $val; ?></option>
+				<?php } ?>
+
+				</select>		
+
+				</label>
+				</div>
+				<div class="col-sm-2">
+				
+				<label>
+				<select class="form-control" required="required" name="deer_size_id[]">
+				<?php foreach($deerSizeLists as $key => $val ) { ?>
+				<option value="<?php print $val ; ?>" <?php if($val == $rowval['deer_size'] ) :?> selected <?php endif;?> ><?php print $val; ?></option>
+				<?php } ?>
+				</select>	
+				</label>
+				</div>
+				<div class="col-sm-2">
+				<label>
+				<select class="form-control"  name="deer_facing_id[]" required>
+				<?php foreach($deerFacingLists as $key => $val ) { ?>
+				<option value="<?php print $val ; ?>" <?php if($val == $rowval['deer_facing'] ) :?> selected <?php endif;?>  ><?php print $val; ?></option>
+				<?php } ?>
+				</select>	
+
+				</label>
+				</div>
+				<div class="col-sm-2">
+				<label>
+				<select class="form-control"  name="deer_position_id[]" required>
+				<?php foreach($deerPositionLists as $key => $val ) { ?>
+				<option value="<?php print $val ; ?>" <?php if($val == $rowval['deer_position'] ) :?> selected <?php endif;?>  ><?php print $val; ?></option>
+				<?php } ?>
+				</select>
+				</label>
+				</div>
+				<div class="col-sm-2">
+				<label>
+				<select class="form-control" required="required" name="killforsuccess[]">
+				<option value="Success" <?php if('Success' === $rowval['kill_for_success'] ) :?> selected <?php endif;?> >Success</option>
+				<option value="Failure" <?php if( 'Failure' === $rowval['kill_for_success'] ) :?> selected <?php endif;?> >Failure</option>
+				</select>
+
+				</label>
+
+
+				</div>	
+
+				<div class="col-sm-1">
+				<label>
+				<!-- <input type="number" step="0.25" name="hours[]" width="1" placeholder="2.0" required /> -->
+				<input type="number"  required="required" placeholder="Min" class="form-control" name="min_start_range[]" min="1" value="<?php print $rowval['min_start_range']; ?>">
+
+				</label>
+				</div>
+				<div class="col-sm-1">
+				<label>
+				<input type="number"  required="required" placeholder="Max" class="form-control" name="max_start_range[]" min="1" value="<?php print $rowval['max_start_range']; ?>">
+				</label>
+
+				</div>		
+
+
+				</div>
+				<?php } ?>
+				
+				<?php else:?>
+				
+				<div id="timesheet-row" class="form-group">	
+				
+				<div class="col-sm-2">
+				<label>
+				<select class="form-control" required="required" name="deer_activity_id[]">
+				<?php foreach($deerActivityRows as $key => $val ) { ?>
+				<option value="<?php print $val ; ?>" ><?php print $val; ?></option>
+				<?php } ?>
+
+				</select>		
+
+				</label>
+				</div>
+				<div class="col-sm-2">
+				
+				<label>
+				<select class="form-control" required="required" name="deer_size_id[]">
+				<?php foreach($deerSizeLists as $key => $val ) { ?>
+				<option value="<?php print $val ; ?>" ><?php print $val; ?></option>
+				<?php } ?>
+				</select>	
+				</label>
+				</div>
+				<div class="col-sm-2">
+				<label>
+				<select class="form-control"  name="deer_facing_id[]" required>
+				<?php foreach($deerFacingLists as $key => $val ) { ?>
+				<option value="<?php print $val ; ?>"   ><?php print $val; ?></option>
+				<?php } ?>
+				</select>	
+
+				</label>
+				</div>
+				<div class="col-sm-2">
+				<label>
+				<select class="form-control"  name="deer_position_id[]" required>
+				<?php foreach($deerPositionLists as $key => $val ) { ?>
+				<option value="<?php print $val ; ?>"   ><?php print $val; ?></option>
+				<?php } ?>
+				</select>
+				</label>
+				</div>
+				<div class="col-sm-2">
+				<label>
+				<select class="form-control" required="required" name="killforsuccess[]">
+				<option value="Success" >Success</option>
+				<option value="Failure"  >Failure</option>
+				</select>
+
+				</label>
+
+
+				</div>	
+
+				<div class="col-sm-1">
+				<label>
+				<!-- <input type="number" step="0.25" name="hours[]" width="1" placeholder="2.0" required /> -->
+				<input type="number"  required="required" placeholder="Min" class="form-control" name="min_start_range[]" min="1" >
+
+				</label>
+				</div>
+				<div class="col-sm-1">
+				<label>
+				<input type="number"  required="required" placeholder="Max" class="form-control" name="max_start_range[]" min="1" >
+				</label>
+
+				</div>		
+
+
+				</div>				
+				
+				
+				
+				
+				
+				
+				<?php endif;?>
+				<input type="button" id="add-row" name="add-row" value="Add row"  class= "btn btn-green"/>
+	</fieldset>
+		
+		
+		
+		
+		
+		
+			
+		</div>
+		</div>		
+	
+	
+
+	
+	
+	<div class="form-group"><div class="col-sm-11">&nbsp;</div></div>	
+	
+	
+	<div class="form-group"><div class="col-sm-11">
+	<fieldset>
+	<legend></legend>
+	
+			<div class="form-actions" align="right">						
+			<div class="col-sm-11"><?php print $this->formRow($form->get('submit'));?></div>		
+			</div>
+	
+	</fieldset>			
+	</div>
+	</div>	
+	
+	
+	
+	
+	
+	
+
+					
+					
+
+<?php 
+//echo $this->formCollection($form);
+echo $this->form()->closeTag();
+?>
+</div>
+</div>
+</div>
+
+</div>
+
+
+	
+

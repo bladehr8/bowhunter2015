@@ -1,0 +1,74 @@
+<?php
+$title = 'Payment Using Paypal';
+$this->headTitle($title);
+$bankDetails = $this->bank;
+
+?>
+<!DOCTYPE html>
+<html lang=en>
+<head>
+<meta charset=utf-8>
+<title>Testing a PayPal Payments Standard Button</title>
+</head>
+ 
+<body>
+ <h1><?php echo $this->escapeHtml($title); ?></h1> 
+ 
+<table>
+<tr>
+<td></td>
+<td> 
+
+
+
+
+
+
+
+
+<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+	<input type="hidden" name="custom" value="<?php print $this->playerId .'#'.$this->bankId;?>">
+    <input type="hidden" name="cmd" value="_xclick">
+    <input type="hidden" name="business" value="arnab.merchant2014@gmail.com ">
+    <input type="hidden" name="item_name" value="<?php print $this->escapeHtml($bankDetails->name); ?>">
+    <input type="hidden" name="item_number" value="1">
+    <input type="hidden" name="amount" value="<?php print $this->price; ?>">
+    <input type="hidden" name="no_shipping" value="0">
+    <input type="hidden" name="no_note" value="1">
+    <input type="hidden" name="currency_code" value="USD">
+    <input type="hidden" name="lc" value="AU">
+    <input type="hidden" name="bn" value="PP-BuyNowBF">
+	<input type="hidden" name="cancel_return" value="http://matrixmedia.redappletech.com/huntinggame/public/application/payment/paymentcancel">
+	<input type="hidden" name="return" value="http://matrixmedia.redappletech.com/huntinggame/public/application/payment/paymentreturn">
+	<input type="hidden" name="notify_url" value="http://matrixmedia.redappletech.com/huntinggame/public/application/payment/paymentnotify"> 
+	 <input type="image"
+src="https://www.sandbox.paypal.com/en_US/i/btn/btn_buynowCC_LG.gif"
+border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif"
+width="1" height="1"> 
+ 
+</form>
+
+ 
+</td>
+</tr>
+</table>
+
+</body>
+</html> 
+ 
+ 
+ 
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

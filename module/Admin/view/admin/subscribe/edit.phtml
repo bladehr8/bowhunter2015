@@ -1,0 +1,101 @@
+<?php
+$getRow= $this->getData;
+$title = $getRow->title ; 
+$this->headTitle($title);
+?>
+<div class="page-header">
+<h1>Edit Basic Page <small>common form elements and layouts</small></h1>
+
+</div>
+
+
+
+
+
+
+
+<div class="row">
+<div class="col-md-2"></div>
+<div class="col-md-8">
+	<!-- start: FORM VALIDATION 1 PANEL -->
+	<div class="panel panel-default">
+		<div class="panel-heading"> <b>Edit  -  <?php print $title; ?> </b> </div>
+	
+		<div class="panel-body">
+			<?php
+			$form = $this->form;
+			$form->setAttribute('action', $this->url('pages', array('action' => 'edit' ,  'id' => $id)));
+			$form->prepare();
+			echo $this->form()->openTag($form);
+			echo $this->formHidden($form->get('id'));
+			?>
+			<fieldset>
+			
+			<div class="form-group">
+			<?php print $this->formRow($form->get('title'));?>
+			</div>
+	
+			<div class="form-group">
+			<?php print $this->formRow($form->get('short_note'));?>
+			</div>
+
+								
+			<div class="form-group">
+			<label class="control-label">
+			Detail Description :
+			</label>
+			<?php print $this->formRow($form->get('content'));?>
+			</div>
+								
+			
+			
+			
+			
+			
+			
+			
+			
+			<div class="form-group">
+			<label>Select Image(1)</label>
+
+				<div class="fileupload fileupload-new" data-provides="fileupload">
+						<div class="input-group">
+						<div class="form-control uneditable-input">
+						<i class="fa fa-file fileupload-exists"></i>
+						<span class="fileupload-preview"></span>
+						</div>
+						<div class="input-group-btn">
+						<div class="btn btn-light-grey btn-file">
+						<span class="fileupload-new"><i class="fa fa-folder-open-o"></i> Select file</span>
+						<span class="fileupload-exists"><i class="fa fa-folder-open-o"></i> Change</span>
+						<!--<input type="file" class="file-input"> -->
+						<?php print $this->formRow($form->get('field_image'));?>
+						</div>
+						<a href="#" class="btn btn-light-grey fileupload-exists" data-dismiss="fileupload">
+						<i class="fa fa-times"></i> Remove
+						</a>
+						</div>
+						</div>
+				</div>
+			<p class="help-block"> Supported extensions : <code>jpg,jpeg,png,gif</code></p>
+			</div>
+
+			
+			<div class="form-group">
+			<?php print $this->formRow($form->get('active'));?>
+			</div>			
+			
+			
+			
+			
+			<div class="form-actions" align="center">
+			<?php print $this->formRow($form->get('submit'));?>
+			</div>
+			</fieldset>
+			
+		<?php echo $this->form()->closeTag(); ?>
+		</div>
+</div>
+</div>
+<div class="col-md-2"></div>
+</div>

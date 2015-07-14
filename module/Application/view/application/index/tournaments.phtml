@@ -1,0 +1,63 @@
+
+
+
+
+
+
+
+<div class="tournament_area">	
+	<div class="panel-group" id="accordion">	
+	<!-- 1 -->
+	<?php $countTournament = 1 ; ?>
+	<?php foreach($this->tournaments as $row):?>
+		  <div class="panel panel-default">
+			<div class="panel-heading">
+			  <h4 class="panel-title">
+				<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+				  <?php print $row['name'] ; ?> <i class="indicator glyphicon glyphicon-minus  pull-right"></i>
+				</a>
+			  </h4>
+			</div>
+			<div id="collapseOne" class="panel-collapse collapse <?php if( $countTournament <=1 ) : ?>in <?php endif;?>">
+			  <div class="panel-body">
+				<div class="scroll_wrapper">
+				
+					<div class="heading1">First Tournament</div>
+					<p>While the game is presented through protagonist Desmond Miles, the bulk of the game is played as Desmond experiences the memories of his ancestors through an advanced device called the Animus. This provides a means of a diegetic interface, showing Desmond's ancestor's health, equipment, goals, and other features as part of the Animus interface. The Animus is based on the player controlling the assassin to maintain the synchronization between Desmond and his</p>
+				  
+				  
+				  <div class="heading2">Leader Board <span aria-hidden="true" class="glyphicon glyphicon-chevron-down pull-right up_arw"></span></div>  
+				 <!-- scrall -->
+				<div class="scroll_pan">
+					<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+				</div> 
+					
+				  </div>                             
+			  </div>
+			</div>
+		  </div>
+		  <?php $countTournament++ ; ?>
+		 <?php endforeach;?> 
+	  <!-- 2 -->    
+
+
+		  
+		 <!-- 3 -->  
+
+
+
+		<!---->
+
+	</div>
+
+	
+	
+</div>
+
+
+
+
+
+
+
+

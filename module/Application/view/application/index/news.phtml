@@ -1,0 +1,22 @@
+<div class="per_content_area">
+<h2 class="no_mrg"><img src="<?php print $this->basePath();?>/frontend/images/heading_icon.png" > Latest News</h2>
+<?php if($this->latest_news->count() > 0 ):?>
+<?php foreach($this->latest_news as $row): ?>
+<h3 class="no_mrg"><?php print $this->escapeHtml( $row->title ); ?></h3>
+<p><?php print $row->news_content ; ?></p>
+<?php if(!empty( $row->external_url ) ) :?>
+<p><a href="<?php print $row->external_url;?>" class="link pull-right">Read More</a></p>
+<p class="clear"></p>
+<?php endif;?>
+<?php endforeach ; ?>
+<?php endif; ?>
+</div>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,98 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
+.appicon01, .appicon02, .appicon03  { 	display: block;
+            /*position: absolute;
+            width: 233px;
+            height: 162px;*/
+        }
+        .appicon01:hover, .appicon02:hover, .appicon03:hover
+        {
+            text-decoration: none;
+        }
+        .appiconcb
+        {
+            position: absolute;
+            left: 0px;
+            bottom: 10px;
+            width: 160px;
+            height: 25px;
+        }
+        .appiconc
+        {
+            position: absolute;
+            right: 0px;
+            bottom: 7px;
+        	text-align: left;
+            width: 209px;
+            height: 25px;
+            line-height:25px;
+            color: #fff;
+        	font-size:14px;
+        	text-decoration:none;
+			background:#656565 url(../images/plus_img.png) no-repeat 220px center;
+			filter: alpha(opacity=70);
+            opacity: .7;
+			padding:0 12px;
+			font-family: 'Open Sans', sans-serif;
+			
+        }
+        .appicon01:hover .appiconcb, .appicon02:hover .appiconcb, .appicon03:hover .appiconcb
+        {
+            background-color: #fff;
+            filter: alpha(opacity=30);
+            opacity: .3;
+        }
+        .appicon01:hover .appiconc, .appicon02:hover .appiconc, .appicon03:hover .appiconc
+        {
+        	color: #000;
+        }
+
+
+       .jssorb18 div, .jssorb18 div:hover, .jssorb18 .av
+            {
+/*                background: url(../images/b18.png) no-repeat;
+*/                overflow:hidden;
+                cursor: pointer;
+            }
+            .jssorb18 div { /*background-position: -3px -3px; float:left; position:relative; left:0;*/ }
+            .jssorb18 div:hover, .jssorb18 .av:hover { /*background-position: -33px -3px;*/color:#FFB33C; }
+            .jssorb18 .av { background:none; color:#FFB33C !important; font-size:20px;/*width:
+			4% !important; */ font-size:14px !important;}
+			.jssorb18 .av :hover{ color:#FFB33C;}
+            .jssorb18 .av .n { background:none; color:#FFB33C !important; font-size:20px !important; }
+            .jssorb18 .dn, .jssorb18 .dn:hover { /*background-position: -93px -3px; */}
+            
+            .jssorb18 .n
+            {
+                
+                color: #fff; font-size:20px;
+            }
+            .jssorb18 div:hover .n, .jssorb18 .av .n, .jssorb18 .av:hover .n, .jssorb18 .dn .n { color:#FFB33C; }
+
+
+.jssorb18{ z-index:99;}
+.pagin_new1{width:30%!important; position:absolute !important; left:45% !important; bottom: 12px; z-index:99;}
+.pagin_new2{width:100%!important; position:absolute !important; left:45% !important; bottom: 12px;}
+.text_pagi1{ position: absolute; width: 24px; height: 24px; text-align: center;
+			line-height: 24px; font-size: 16px;}
+
+/* .jssorb18 .av, .jssorb18 .dn{ width: 39px!important; height:23px!important;} 
+.jssorb18 .av:hover{ width: 39px!important; height:23px!important;}
+
+ .jssorb18 .av, .jssorb18 .dn{width: 39px!important; height:23px!important;} */
+
+
+
+
+
+/*Navigation*/
+.navigation{ width:97%!important; position:absolute; bottom:0;}
+.navigation span.prev_icon{ display:block;  float:left; }
+.navigation span.prev_icon a{font-size: 17px !important;color:#ffb33c;}
+.navigation span.next_icon{ display:block; width:39px; float:right; margin-right:2%;}
+.navigation span.next_icon a{font-size: 17px !important;color:#ffb33c;}
+
+.navigation span.prev_icon:hover, .navigation span.next_icon:hover{cursor:pointer;}
+
+.sl_prev1{ margin-left:2%}
+.sl_prev2{ margin-left:0%}

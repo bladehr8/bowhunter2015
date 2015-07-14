@@ -1,0 +1,68 @@
+
+<div class="banner_area">
+	<div class="banner_txt">
+		<div class="container">
+				<div class="header_section">
+					<div id="oScroll">
+						  <div id="scroll">Online Notification For <span>Purchasing New Item</span></div>
+					</div>
+				</div>
+		</div>
+	</div>
+          
+ <!-- Carousel ================================================== -->
+ <?php if($this->layout()->banners) : ?>
+<?php $totalBanner = $this->layout()->banners->count() ; ?>
+<?php if($totalBanner > 0 ) :?>
+<div id="myCarousel" class="carousel slide" data-ride="carousel"> 
+    <!-- Indicators -->	
+    <ol class="carousel-indicators">
+	<?php for($i=0 ; $i < $totalBanner ; $i++ ) { ?>
+              <li data-target="#myCarousel" data-slide-to="<?php print $i ; ?>" <?php if($i == 0) { ?> class="active" <?php } ?> ></li> 
+	<?php } ?>            
+   </ol>	
+    <div class="carousel-inner">
+		<?php $k=1; ?>
+		<?php foreach($this->banners as $row):?>		 
+		<div class="item <?php if($k == 1) { ?>active<?php }?>"><img src="<?php print $this->basePath();?>/upload/slider/<?php print $row->field_image; ?>" alt="" border="0"></div> 
+		<?php $k++ ; ?>
+		<?php endforeach ; ?>		
+    </div>
+</div>
+<!-- /.carousel -->
+<?php endif; ?>  
+  <?php endif; ?>
+	<div class="banner_item">
+		<div class="container">
+			<div class="header_section">
+				
+<div class="col-md-2 col-sm-2 space fb_baner">
+<iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;width=150&amp;layout=button_count&amp;action=like&amp;show_faces=true&amp;share=false&amp;height=25&amp;appId=242553099209488" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:150px; height:25px;" allowTransparency="true"></iframe>
+</div>
+<div class="col-md-2 col-sm-2 space fb_baner1">
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://matrixmedia.redappletech.com/huntinggame/public/application/index" data-text="Game Concept" data-size="medium">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+</div>
+<div class="col-md-2 col-sm-2 space fb_baner1">			
+<!-- Place this tag where you want the share button to render. -->
+<div class="g-plus" data-action="share" data-annotation="bubble" data-height="20" data-href="http://matrixmedia.redappletech.com/huntinggame/public/application/index"></div>
+
+<!-- Place this tag after the last share tag. -->
+<script type="text/javascript">
+(function() {
+var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+po.src = 'https://apis.google.com/js/platform.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+})();
+</script>				
+</div>			
+
+<div class="col-md-3 col-sm-3 space1"><a href="https://play.google.com/store/apps?hl=en"><img src="<?php print $this->basePath();?>/frontend/images/google_play.png" alt=""></a></div>
+<div class="col-md-3 col-sm-3 space1"><a href="https://play.google.com/store/apps?hl=en"><img src="<?php print $this->basePath();?>/frontend/images/app_store.png" alt=""></a></div>
+</div>
+		</div>
+	</div>
+	
+	
+ </div>

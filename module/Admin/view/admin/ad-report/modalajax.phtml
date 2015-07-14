@@ -1,0 +1,43 @@
+<div class="modal-header">
+	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	<h3>List of Users</h3>
+</div>
+<div class="modal-body">
+
+	<div class="table-responsive"> 
+				<table id="sample-table-1" class="table table-hover">
+				<thead>
+				<tr>
+				<th class="center">#</th>
+				<th>Name</th>
+				<th class="hidden-xs">Email</th>
+				<th>Social - Id</th>
+				</tr>
+				</thead>
+
+				<tbody>
+				<?php		foreach($this->userLists as $row) { ?>
+				<tr>
+				<td class="center"><?php print $row->user_id; ?></td>
+				<td class="hidden-xs"><?php print $row->name; ?></td>
+				<td><?php print $row->email;?></td>
+				<td><?php print $row->socialId;?></td>				
+				</tr>
+				<?php } ?>
+
+				</tbody>
+				</table>	
+	
+	</div>
+	
+	
+	
+	
+	
+	
+	
+</div>
+<div class="modal-footer">
+	<button type="button" data-dismiss="modal" class="btn">Close</button>
+	<button type="button" class="btn btn-primary">Ok</button>
+</div>

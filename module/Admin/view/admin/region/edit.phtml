@@ -1,0 +1,53 @@
+<?php
+$regiontails = $this->region;
+$title = $regiontails->name ; 
+$this->headTitle($title);
+?>
+
+<div class="row">
+<div class="col-md-2"></div>
+<div class="col-md-8">
+	<!-- start: FORM VALIDATION 1 PANEL -->
+	<div class="panel panel-default">
+		<div class="panel-heading"> <b>Edit  -  <?php print $title; ?> </b> </div>
+	
+		<div class="panel-body">
+			<?php
+			$form = $this->form;
+			$form->setAttribute('action', $this->url('region', array('action' => 'edit' ,  'id' => $id)));
+			$form->prepare();
+			echo $this->form()->openTag($form);
+			echo $this->formHidden($form->get('id'));
+			?>
+			<fieldset>
+			
+			<div class="form-group">
+			<?php print $this->formRow($form->get('name'));?>
+			</div>
+			
+			<div class="form-group">
+			<?php print $this->formRow($form->get('short_key'));?>
+			</div>
+			
+			
+			<div class="form-group">
+			<?php print $this->formRow($form->get('require_xp_level'));?>
+			</div>
+			
+			
+
+			<div class="form-group">
+			<?php print $this->formRow($form->get('active'));?>
+			</div>
+			
+			<div class="form-actions" align="center">
+			<?php print $this->formRow($form->get('submit'));?>
+			</div>
+			</fieldset>
+			
+		<?php echo $this->form()->closeTag(); ?>
+		</div>
+</div>
+</div>
+<div class="col-md-2"></div>
+</div>

@@ -1,0 +1,173 @@
+<?php
+// module/Album/view/album/album/index.phtml:
+
+$title = 'Basic Pages';
+$this->headTitle($title);
+?><?php //echo $this->escapeHtml($title); ?>
+
+<div class="page-header">
+<!--<a href="<?php print $this->basePath(); ?>/admin/pages/add" class="btn btn-primary"><i class="fa fa-plus"></i>Add New</a>
+ <h1>Form Elements <small>common form elements and layouts</small></h1> -->
+</div>
+
+
+<?php if(count($flashMessages)) : ?>
+			<div class="row">
+					<div class="col-md-12">
+							<div class="alert alert-success">
+							<button class="close" data-dismiss="alert">
+							×
+							</button>
+							<i class="fa fa-check-circle"></i>
+							<?php foreach ($flashMessages as $msg) : ?>
+							 <?php echo $msg; ?>
+							<?php endforeach; ?>
+							</div>
+					</div>
+			</div>
+<?php endif; ?>	
+
+
+
+
+
+
+	
+
+	<div class="row">
+	<div class="col-md-12">
+	<div class="panel panel-default">
+	<div class="panel-heading">
+	<i class="fa fa-external-link-square"></i>
+	<span style="padding-left:25px;">Basic Pages</span>
+	<div class="panel-tools">
+	<a class="btn btn-xs btn-link panel-collapse collapses" href="#">
+	</a>
+	<a class="btn btn-xs btn-link panel-config" href="#panel-config" data-toggle="modal">
+	<i class="fa fa-wrench"></i>
+	</a>
+	<a class="btn btn-xs btn-link panel-refresh" href="#">
+	<i class="fa fa-refresh"></i>
+	</a>
+	<a class="btn btn-xs btn-link panel-expand" href="#">
+	<i class="fa fa-resize-full"></i>
+	</a>
+	<a class="btn btn-xs btn-link panel-close" href="#">
+	<i class="fa fa-times"></i>
+	</a>
+	</div>
+	</div>
+	
+	<div class="panel-body">
+	<table class="table table-hover" id="sample-table-1">		
+	<thead>
+	<tr>
+	<th class="center">#ID</th>
+	<th class="center">Title</th>
+	<th class="center">Type</th>
+	<th class="hidden-xs">Created On</th>
+	<th class="hidden-xs">Status</th>
+	<th></th>
+	<th></th>
+	</tr>
+	</thead>
+	<?php if( 0=== $rows->count()) { ?>
+	<tr><td class="left" colspan="7" ><p class="text-danger">No results found !</p></td></tr>
+	<?php } else { ?>
+	<tbody>
+	<?php $slCount = 0;?>
+	<?php foreach($rows as $row) : ?>
+	<?php $slCount++ ;?>
+	<tr>
+	<td class="center"><?php print $slCount; ?></td>
+	<td class="center"><a href="<?php print $this->basePath(); ?>/admin/pages/details/<?php print $row->id; ?>" target="_blank"><?php print $row->title;?></a></td>
+	<td class="center"><?php print 'Basic Page'; ?></td>
+	<td class="hidden-xs"><?php print $row->created_on  ;?></td>
+	<td class="hidden-xs">
+	<?php print ($row->active == 1) ? '<span class="label label-sm label-success">Active</span>' : '<span class="label label-sm label-danger">Expired</span>'; ?>
+	</td>
+	
+											
+	
+	
+	
+	<td class="center">
+	
+	
+	<div class="visible-md visible-lg hidden-sm hidden-xs">
+	<a href="<?php print $this->basePath(); ?>/admin/pages/edit/<?php print $row->id; ?>" class="btn btn-xs btn-teal tooltips" data-placement="top" data-original-title="Edit"><i class="fa fa-edit"></i></a>
+	
+	<a href="<?php print $this->basePath(); ?>/admin/pages/delete/<?php print $row->id; ?>" class="btn btn-xs btn-bricky tooltips" data-placement="top" data-original-title="Remove"><i class="fa fa-times fa fa-white"></i></a>
+	</div>
+	<div class="visible-xs visible-sm hidden-md hidden-lg">
+	<div class="btn-group">
+	<a class="btn btn-primary dropdown-toggle btn-sm" data-toggle="dropdown" href="#">
+	<i class="fa fa-cog"></i> <span class="caret"></span>
+	</a>
+	<ul role="menu" class="dropdown-menu pull-right">
+	
+	<li role="presentation">
+	<a role="menuitem" tabindex="-1" href="<?php print $this->basePath(); ?>/admin/pages/edit/<?php print $row->id; ?>">
+	<i class="fa fa-edit"></i> Edit
+	</a>
+	</li>
+
+	<li role="presentation">
+	<a role="menuitem" tabindex="-1" href="<?php print $this->basePath(); ?>/admin/pages/delete/<?php print $row->id; ?>">
+	<i class="fa fa-times"></i> Remove
+	</a>
+	</li>
+	</ul>
+	</div>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	</td>
+
+	</tr>
+	<?php endforeach; ?>
+	</tbody>
+	<?php } ?>
+	</table>
+	</div>
+	</div>
+
+
+
+
+
+	</div></div>
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
